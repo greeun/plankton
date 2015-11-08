@@ -84,8 +84,8 @@ public class AddressHelper
 	 */
 	public static StringBuffer getTargetAddress(Socket socket)
 	{
-		return getIP(socket.getInetAddress()).append(":").append(
-                getPORT(socket));
+		return getIP(socket.getInetAddress()).append(":")
+				.append(getPORT(socket));
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class AddressHelper
 	 * test main
 	 *
 	 * @param args
- 	 */
-    public static void main(String args[])
+	 */
+	public static void main(String args[])
 	{
 		AddressHelper test = new AddressHelper();
 		System.out.println("Localhost InetAddress : "
@@ -142,7 +142,8 @@ public class AddressHelper
 		String domain = "www.yahoo.com";
 		System.out.println("> Your computer's IP address is "
 				+ AddressHelper.getLocalhostAddress());
-		for (int temp = 0; temp < AddressHelper.getDomain2IP(domain).length; temp++)
+		for (int temp = 0; temp < AddressHelper
+				.getDomain2IP(domain).length; temp++)
 		{
 			System.out.println(new StringBuffer().append("> \"").append(domain)
 					.append("\" domain IP address No.").append(temp + 1)
