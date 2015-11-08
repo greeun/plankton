@@ -1,5 +1,5 @@
 group = 'com.withwiz'
-version = '0.1.1'
+version = '0.1.2'
 
 apply plugin: 'java'
 apply plugin: 'com.novoda.bintray-release'
@@ -36,7 +36,7 @@ publish {
     userOrg = 'greeun'
     groupId = 'com.withwiz'
     artifactId = 'plankton'
-    publishVersion = "${version}"
+    publishVersion = "0.1.2"
     desc = 'Plankton is common utilities set.'
     website = 'https://github.com/greeun/plankton'
     issueTracker = '${website}/issues'
