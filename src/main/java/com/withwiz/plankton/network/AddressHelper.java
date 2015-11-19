@@ -38,7 +38,7 @@ public class AddressHelper
 		{
 			return null;
 		}
-		return getIP(iaLocalAddress);
+		return getIp(iaLocalAddress);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class AddressHelper
 	 *            InetAddress instance
 	 * @return IP address(xxx.xxx.xxx.xxx)
 	 */
-	public static StringBuffer getIP(InetAddress ia)
+	public static StringBuffer getIp(InetAddress ia)
 	{
 		byte[] address = ia.getAddress();
 		StringBuffer sb = new StringBuffer();
@@ -70,7 +70,7 @@ public class AddressHelper
 	 *            Socket instance
 	 * @return port number
 	 */
-	public static int getPORT(Socket socket)
+	public static int getPort(Socket socket)
 	{
 		return socket.getPort();
 	}
@@ -84,8 +84,8 @@ public class AddressHelper
 	 */
 	public static StringBuffer getTargetAddress(Socket socket)
 	{
-		return getIP(socket.getInetAddress()).append(":")
-				.append(getPORT(socket));
+		return getIp(socket.getInetAddress()).append(":")
+				.append(getPort(socket));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class AddressHelper
 	 *            domain name
 	 * @return IP address array
 	 */
-	public static String[] getDomain2IP(String domainName)
+	public static String[] getDomain2Ip(String domainName)
 	{
 		// A domain can have multiple IP.
 		InetAddress[] ip;
@@ -126,7 +126,7 @@ public class AddressHelper
 	 */
 	public static String[] nslookup(String domainName)
 	{
-		return getDomain2IP(domainName);
+		return getDomain2Ip(domainName);
 	}
 
 	/**
@@ -143,11 +143,11 @@ public class AddressHelper
 		System.out.println("> Your computer's IP address is "
 				+ AddressHelper.getLocalhostAddress());
 		for (int temp = 0; temp < AddressHelper
-				.getDomain2IP(domain).length; temp++)
+				.getDomain2Ip(domain).length; temp++)
 		{
 			System.out.println(new StringBuffer().append("> \"").append(domain)
 					.append("\" domain IP address No.").append(temp + 1)
-					.append(" is ").append(getDomain2IP(domain)[temp]));
+					.append(" is ").append(getDomain2Ip(domain)[temp]));
 		}
 		for (int temp = 0; temp < AddressHelper.nslookup(domain).length; temp++)
 		{
