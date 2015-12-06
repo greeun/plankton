@@ -520,33 +520,50 @@ public class StringUtil
 	public static void main(String[] args) {
         org.slf4j.Logger log = LoggerFactory.getLogger(StringUtil.class);
 
+		String hexString = "0x2b3cd8e";
+		String hexStringWithout0x = "0x2b3cd8e";
+		String intString = "20";
+		int intValue = 20;
+		int maxLength = 10;
+		int startIndex = 0;
+		int length = 2;
+		String startString = "#";
+		String endString = "$";
+		String booleanString = "TRUE";
         String source = "abc#ABC#DEF#GHIJKLMN$OP";
         String source2 = "<sbjt><![CDATA[(미디어 제목)]]></sbjt>";
         String source3 = "STB_VER=02.02.06&APP_VER=02.04.06&P2TV_ENG_1_VER=006&P2TV_ENG_2_VER=015";
+		String oldString = "#A";
+		String newString = "$E";
+		String subStringStart = "<![CDATA[(";
+		String subStringEnd = ")]]>";
+		String elementDivider = "&";
+		String keyValueDivider = "=";
+
 
         // StringHexToInt()
-        log.debug("hex 0x2b3cd8e to int : {}",
-                StringUtil.hexStringToInt("0x2b3cd8e"));
+        log.debug("hex {} to int : {}", hexString,
+                StringUtil.hexStringToInt(hexString));
         // StringToHex()
-        log.debug("string 0 to hex : {}", StringUtil.intStringToHexString("0"));
+        log.debug("string {} to hex : {}", intString, StringUtil.intStringToHexString(intString));
         // add0xFrontHexString()
-        log.debug("add 0x in front of Hex A0 : {}",
-                StringUtil.add0xFrontHexString("A0"));
+        log.debug("add 0x in front of Hex {} : {}", hexStringWithout0x,
+                StringUtil.add0xFrontHexString(hexStringWithout0x));
         // add0xFrontIntString()
-        log.debug("add 0x in front of int 12 : {}",
-                StringUtil.add0xFrontIntString(12));
+        log.debug("add 0x in front of int {} : {}", intString,
+                StringUtil.add0xFrontIntString(intValue));
         // addZeroFrontValue()
-        log.debug("add 0 in front of 12 : {}",
-                StringUtil.addZeroFrontValue(12, 4));
+        log.debug("add 0 in front of {} : {}", intValue,
+                StringUtil.addZeroFrontValue(intValue, maxLength));
         // booleanStringToBoolean()
-        log.debug("boolean string \"TRUE\" to Boolean : {}",
-                StringUtil.booleanStringToBoolean("TRUE"));
+        log.debug("boolean string {} to Boolean : {}", booleanString,
+                StringUtil.booleanStringToBoolean(booleanString));
         // replace()
-        log.debug("replace {} from #A to $E : {}", source,
-                StringUtil.replace(source, "#A", "$E"));
+        log.debug("replace {} from {} to {} : {}", source, oldString, newString,
+                StringUtil.replace(source, oldString, newString));
         // replace2()
-        log.debug("replace2 {} from #A to $E : {}", source,
-                StringUtil.replace2(source, "#A", "$E"));
+        log.debug("replace2 {} from {} to {} : {}", source, oldString, newString,
+                StringUtil.replace2(source, oldString, newString));
         // getLeft()
         log.debug("getLeft from {} by {} : {}", source, "#",
                 StringUtil.getLeft(source, "#"));
@@ -554,20 +571,17 @@ public class StringUtil
         log.debug("getRight from {} by {} : {}", source, "#",
                 StringUtil.getRight(source, "#"));
         // getMid()
-        log.debug("getMid from {} : {}", source,
-                StringUtil.getMid(source, 3, 5));
+        log.debug("getMid {} to {} from {} : {}", startIndex, length, source,
+                StringUtil.getMid(source, startIndex, length));
         // getMidWithDelimeter()
-        log.debug("getMid from {} : {}", source, StringUtil
-                .getMidWithDelimeter(source, "#", "$"));
-        // getMidWithoutDelimeter()
-        log.debug("getMid from {} : {}", source, StringUtil
-                .getMidWithoutDelimeter(source, "#", "$"));
+        log.debug("getMid {} to {} from {} : {}", startString, endString, source, StringUtil
+                .getMidWithDelimeter(source, startString, endString));
         // subString()
-        log.debug("subString string {} : {}", source2,
-                subString(source2, "<![CDATA[(", ")]]>"));
+        log.debug("subString {} to {} string {} : {}", subStringStart, subStringEnd, source2,
+                subString(source2, subStringStart, subStringEnd));
         // getKeyValueMap()
         log.debug("getKeyValueMap source: {}", source3);
-        Map map = getKeyValueMap(source3, "&", "=");
+        Map map = getKeyValueMap(source3, elementDivider, keyValueDivider);
         Set set = map.entrySet();
         Iterator iterator = set.iterator();
         Map.Entry entry = null;
