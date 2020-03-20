@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.nio.charset.Charset;
 
 /**
- * StringInputStream class<BR/>
+ * StringInputStream class<BR>
  * Created by uni4love on 2010. 5. 9..
  */
 public class StringInputStream extends ByteArrayInputStream

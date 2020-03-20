@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * Network address helper class<BR/>
+ * Network address helper class<BR>
  * Created by uni4love on 2010. 05. 27..
  */
 public class AddressHelper
@@ -19,7 +19,7 @@ public class AddressHelper
 	private Logger log = LoggerFactory.getLogger(AddressHelper.class);
 
 	/**
-	 * return localhost IP address.<BR/>
+	 * return localhost IP address.<BR>
 	 *
 	 * @return IP address
 	 */
@@ -42,7 +42,7 @@ public class AddressHelper
 	}
 
 	/**
-	 * return IP address(xxx.xxx.xxx.xxx)<BR/>
+	 * return IP address(xxx.xxx.xxx.xxx)<BR>
 	 *
 	 * @param ia
 	 *            InetAddress instance
@@ -64,7 +64,7 @@ public class AddressHelper
 	}
 
 	/**
-	 * return port of the socket.<BR/>
+	 * return port of the socket.<BR>
 	 *
 	 * @param socket
 	 *            Socket instance
@@ -76,7 +76,7 @@ public class AddressHelper
 	}
 
 	/**
-	 * return address(IP:PORT) of remote client from socket.<BR/>
+	 * return address(IP:PORT) of remote client from socket.<BR>
 	 *
 	 * @param socket
 	 *            Socket instance
@@ -89,7 +89,7 @@ public class AddressHelper
 	}
 
 	/**
-	 * return IP addresses from domain name.<BR/>
+	 * return IP addresses from domain name.<BR>
 	 *
 	 * @param domainName
 	 *            domain name
@@ -118,7 +118,7 @@ public class AddressHelper
 	}
 
 	/**
-	 * return IP addresses from domain name.<BR/>
+	 * return IP addresses from domain name.<BR>
 	 *
 	 * @param domainName
 	 *            domain name

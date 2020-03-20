@@ -11,7 +11,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Crypto library: AES supported.<BR/>
+ * Crypto library: AES supported.<BR>
  * Created by uni4love on 2012. 09. 16..
  */
 public class AES {
@@ -39,6 +39,7 @@ public class AES {
         AES.transfomation = transfomation;
     }
 
+
     /**
      * 암호화
      *
@@ -46,7 +47,12 @@ public class AES {
      * @param key       암호화 key
      * @param iv        initial vector
      * @return 암호화 문자열 데이터
-     * @throws Exception
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
      */
     public static byte[] encrypt(byte[] plainText, byte[] key, byte[] iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException,
@@ -79,6 +85,7 @@ public class AES {
 
     }
 
+
     /**
      * 암호화
      *
@@ -86,7 +93,12 @@ public class AES {
      * @param key       암호화 key
      * @param iv        initial vector
      * @return 암호화 문자열 데이터
-     * @throws Exception
+     * @throws NoSuchPaddingException
+     * @throws InvalidKeyException
+     * @throws NoSuchAlgorithmException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     * @throws InvalidAlgorithmParameterException
      */
     public static byte[] encrypt(byte[] plainText, String key, byte[] iv)
             throws NoSuchPaddingException, InvalidKeyException,
@@ -108,11 +120,17 @@ public class AES {
     }
 
     /**
-     * 복호화
      *
      * @param cipherText 암호화된 문자열 데이터
+     * @param key       암호화 key
+     * @param iv        initial vector
      * @return 복호화된 문자열 데이터
-     * @throws Exception
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
      */
     public static byte[] decrypt(byte[] cipherText, byte[] key, byte[] iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException,

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * This class supports proxy function for InputStream.<BR/>
+ * This class supports proxy function for InputStream.<BR>
  * Created by uni4love on 2011. 05. 06..
  */
 public class ProxyInputStream extends InputStream
@@ -92,7 +92,7 @@ public class ProxyInputStream extends InputStream
 	}
 
 	/**
-	 * return saved byte[]<BR/>
+	 * return saved byte[]<BR>
 	 *
 	 * @return byte[]
 	 */
@@ -102,7 +102,7 @@ public class ProxyInputStream extends InputStream
 	}
 
 	/**
-	 * return ByteArrayInputStream for saved byte[]<BR/>
+	 * return ByteArrayInputStream for saved byte[]<BR>
 	 *
 	 * @return ByteArrayInputStream
 	 */
@@ -112,7 +112,7 @@ public class ProxyInputStream extends InputStream
 	}
 
 	/**
-	 * return size.<BR/>
+	 * return size.<BR>
 	 * 
 	 * @return size
 	 */

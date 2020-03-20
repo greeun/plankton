@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Stream utility class.<BR/>
+ * Stream utility class.<BR>
  * Created by uni4love on 2009. 9. 16..
  */
 public class StreamUtil

@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 /**
- * Date utility class.<BR/>
+ * Date utility class.<BR>
  * Created by uni4love on 2008. 6. 24..
  */
 public class DateUtil {
@@ -18,8 +18,8 @@ public class DateUtil {
     }
 
     /**
-     * Date를 입력한 format에 맞도록 돌려준다.<BR/>
-     * ex) yyyy-mm-dd -> 2007-12-27 2007-12-27 오후 8:35:00
+     * Date를 입력한 format에 맞도록 돌려준다.<BR>
+     * ex) yyyy-mm-dd : 2007-12-27 2007-12-27 오후 8:35:00
      *
      * @param c      Calendar
      * @param format format string
@@ -65,8 +65,8 @@ public class DateUtil {
     }
 
     /**
-     * Date를 입력한 format에 맞도록 돌려준다.<BR/>
-     * ex) yyyy-mm-dd -> 2007-12-27 2007-12-27 오후 8:35:00
+     * Date를 입력한 format에 맞도록 돌려준다.<BR>
+     * ex) yyyy-mm-dd : 2007-12-27 2007-12-27 오후 8:35:00
      *
      * @param format format string
      * @return formatted date string
@@ -169,7 +169,7 @@ public class DateUtil {
      *
      * @param c        Calendar
      * @param format   format string
-     * @param useAM_PM
+     * @param useAM_PM true or false
      * @return formatted time string
      */
     public static String getTime(Calendar c, String format, boolean useAM_PM) {

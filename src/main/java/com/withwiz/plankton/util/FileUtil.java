@@ -5,12 +5,12 @@ import java.nio.channels.FileChannel;
 import java.util.Calendar;
 
 /**
- * file utility class.<BR/>
+ * file utility class.<BR>
  */
 public class FileUtil {
 
     /**
-     * return file directory.<BR/>
+     * return file directory.<BR>
      *
      * @param filepath file path
      * @return directory path
@@ -20,7 +20,7 @@ public class FileUtil {
     }
 
     /**
-     * return Only file name.<BR/>
+     * return Only file name.<BR>
      *
      * @param filepath file path
      * @return file name
@@ -39,7 +39,7 @@ public class FileUtil {
     }
 
     /**
-     * return file extension.<BR/>
+     * return file extension.<BR>
      *
      * @param filepath file path
      * @return file extension
@@ -49,7 +49,7 @@ public class FileUtil {
     }
 
     /**
-     * remove file with recursive path.<BR/>
+     * remove file with recursive path.<BR>
      *
      * @param filepath file path
      * @return result
@@ -72,7 +72,7 @@ public class FileUtil {
     }
 
     /**
-     * write InputStream to destination path.<BR/>
+     * write InputStream to destination path.<BR>
      *
      * @param inputStream  source InputStream
      * @param destFilePath destination path
@@ -103,7 +103,7 @@ public class FileUtil {
 
 
     /**
-     * write Reader to Writer with encoding.<BR/>
+     * write Reader to Writer with encoding.<BR>
      *
      * @param reader       reader
      * @param destFilePath destination path
@@ -141,7 +141,7 @@ public class FileUtil {
     }
 
     /**
-     * if parent directory NOT exist, mkdir the parent.<BR/>
+     * if parent directory NOT exist, mkdir the parent.<BR>
      *
      * @param destFilePath destination path
      */
@@ -154,7 +154,7 @@ public class FileUtil {
     }
 
     /**
-     * return user work directory.<BR/>
+     * return user work directory.<BR>
      *
      * @return directory
      */
@@ -180,7 +180,7 @@ public class FileUtil {
     }
 
     /**
-     * copy a file.<BR/>
+     * copy a file.<BR>
      *
      * @param source source file
      * @param target destination file
@@ -225,7 +225,7 @@ public class FileUtil {
     }
 
     /**
-     * copy a file with stream.<BR/>
+     * copy a file with stream.<BR>
      *
      * @param source source file path
      * @param target destination path
@@ -262,7 +262,7 @@ public class FileUtil {
     }
 
     /**
-     * copy a file with buffer.<BR/>
+     * copy a file with buffer.<BR>
      *
      * @param source source file path
      * @param target destinatio path
@@ -307,7 +307,7 @@ public class FileUtil {
     }
 
     /**
-     * copy a file with FileInputStream,FileOutputStream.<BR/>
+     * copy a file with FileInputStream,FileOutputStream.<BR>
      *
      * @param fis FileInputStream
      * @param fos FileOutputStream
@@ -343,7 +343,7 @@ public class FileUtil {
     }
 
     /**
-     * copy a file with channel.<BR/>
+     * copy a file with channel.<BR>
      *
      * @param source source file path
      * @param target destination file path

@@ -1,7 +1,7 @@
 package com.withwiz.plankton.network;
 
 /**
- * Network utility processing status codes.<BR/>
+ * Network utility processing status codes.<BR>
  * Created by uni4love on 2010. 2. 2..
  */
 public interface INetworkStatus

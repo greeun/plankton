@@ -13,7 +13,7 @@ import java.nio.file.StandardOpenOption;
  */
 public class IOUtil {
     /**
-     * write InputStream to OutputStream.<BR/>
+     * write InputStream to OutputStream.<BR>
      *
      * @param is InnputStream
      * @param os OutputStream
@@ -24,7 +24,7 @@ public class IOUtil {
     }
 
     /**
-     * write InputStream to OutputStream.<BR/>
+     * write InputStream to OutputStream.<BR>
      *
      * @param is         InnputStream
      * @param os         OutputStream
@@ -45,7 +45,7 @@ public class IOUtil {
     }
 
     /**
-     * write Reader to Writer.<BR/>
+     * write Reader to Writer.<BR>
      *
      * @param br Reader
      * @param bw Writer
@@ -56,7 +56,7 @@ public class IOUtil {
     }
 
     /**
-     * write Reader to Writer.<BR/>
+     * write Reader to Writer.<BR>
      *
      * @param br         Reader
      * @param bw         Writer

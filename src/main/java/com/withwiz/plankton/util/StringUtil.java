@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 /**
- * String utility class.<BR/>
+ * String utility class.<BR>
  * Created by uni4love on 2008. 2. 16..
  */
 public class StringUtil
 {
 	/**
-	 * convert hex value String to int type.<BR/>
+	 * convert hex value String to int type.<BR>
 	 *
 	 * @param hexString
 	 *            0x.. hex value String
@@ -69,7 +69,7 @@ public class StringUtil
 	}
 
 	/**
-	 * convert int value String to hex type.<BR/>
+	 * convert int value String to hex type.<BR>
 	 *
 	 * @param intString
 	 *            int value string
@@ -87,7 +87,7 @@ public class StringUtil
 	}
 
 	/**
-	 * add "0x" in front of hex string.<BR/>
+	 * add "0x" in front of hex string.<BR>
 	 *
 	 * @param hexString
 	 *            int value string
@@ -101,7 +101,7 @@ public class StringUtil
 	}
 
 	/**
-	 * add "0x" in front of int value.<BR/>
+	 * add "0x" in front of int value.<BR>
 	 *
 	 * @param intValue
 	 *            int value string
@@ -143,7 +143,7 @@ public class StringUtil
 	}
 
 	/**
-	 * convert Boolean string to boolean value.<BR/>
+	 * convert Boolean string to boolean value.<BR>
 	 *
 	 * @param booleanString
 	 *            boolean string
@@ -164,7 +164,7 @@ public class StringUtil
 	}
 
 	/**
-	 * replace from string to string2.<BR/>
+	 * replace from string to string2.<BR>
 	 *
 	 * @param src
 	 *            source data
@@ -194,7 +194,7 @@ public class StringUtil
 	}
 
 	/**
-	 * replace from string to string2.<BR/>
+	 * replace from string to string2.<BR>
 	 *
 	 * @param source
 	 *            source data
@@ -234,7 +234,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return string array from "abc|def|ghi...", exception for delimeter.<BR/>
+	 * return string array from "abc|def|ghi...", exception for delimeter.<BR>
 	 *
 	 * @param source
 	 *            source data
@@ -262,7 +262,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return isNumbric<BR/>
+	 * return isNumbric<BR>
 	 *
 	 * @param input
 	 *            input string
@@ -290,7 +290,7 @@ public class StringUtil
 	}
 
 	/**
-	 * on/off -> true/false<BR/>
+	 * on/off : true/false<BR>
 	 *
 	 * @param input
 	 *            input string(ON or OFF)
@@ -305,7 +305,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return string between leftString and rightString.<BR/>
+	 * return string between leftString and rightString.<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -324,7 +324,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return a string the beginning to length.<BR/>
+	 * return a string the beginning to length.<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -338,7 +338,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return a string the beginning to delimeter position index in string.<BR/>
+	 * return a string the beginning to delimeter position index in string.<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -356,7 +356,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return string after index.<BR/>
+	 * return string after index.<BR>
 	 *
 	 * @param source
 	 *            source data
@@ -370,7 +370,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return string after delimeter.<BR/>
+	 * return string after delimeter.<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -388,7 +388,7 @@ public class StringUtil
 	}
 
 	/**
-	 * search string by indexes.<BR/>
+	 * search string by indexes.<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -404,7 +404,7 @@ public class StringUtil
 	}
 
 	/**
-	 * search string by delimeters.<BR/>
+	 * search string by delimeters.<BR>
 	 *
 	 * @param source
 	 *            source data
@@ -428,7 +428,7 @@ public class StringUtil
 	}
 
 	/**
-	 * search string by delimeters, excepting for delimeter.<BR/>
+	 * search string by delimeters, excepting for delimeter.<BR>
 	 *
 	 * @param source
 	 *            source data
@@ -451,11 +451,7 @@ public class StringUtil
 	}
 
 	/**
-	 * return Map data(key-value)<BR/>
-	 *
-	 * ex)
-	 * STB_VER=02.02.06&APP_VER=02.04.06&P2TV_ENG_1_VER=006&P2TV_ENG_2_VER=015
-	 * <BR/>
+	 * return Map data(key-value)<BR>
 	 *
 	 * @param source
 	 *            source string
@@ -491,7 +487,7 @@ public class StringUtil
 	}
 
     /**
-     * returns the index of the array is stored for a specific string.<BR/>
+     * returns the index of the array is stored for a specific string.<BR>
      *
      * @param saArray
      *            string array

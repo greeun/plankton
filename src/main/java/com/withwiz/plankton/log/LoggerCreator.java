@@ -15,7 +15,7 @@ import ch.qos.logback.core.FileAppender;
 import ch.qos.logback.core.rolling.*;
 
 /**
- * Logback Logger creator.<BR/>
+ * Logback Logger creator.<BR>
  * Created by uni4love on 2013. 3. 12..
  */
 public class LoggerCreator
@@ -61,7 +61,7 @@ public class LoggerCreator
 	private static final String FILENAME_PATTERN_DEFAULT = "%d{yyyy-MM-dd_HH}";
 
 	/**
-	 * create Logger and return.<BR/>
+	 * create Logger and return.<BR>
 	 *
 	 * @param clz
 	 *            Class
@@ -83,7 +83,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * create and return file Logger.<BR/>
+	 * create and return file Logger.<BR>
 	 *
 	 * @param clz
 	 *            Class
@@ -109,7 +109,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * create and return Rolling file logger.<BR/>
+	 * create and return Rolling file logger.<BR>
 	 *
 	 * @param clz
 	 *            Class
@@ -135,7 +135,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * create Logger and return.<BR/>
+	 * create Logger and return.<BR>
 	 * 
 	 * @param clz
 	 *            Class
@@ -155,7 +155,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * create logger without appender.<BR/>
+	 * create logger without appender.<BR>
 	 * 
 	 * @param clz
 	 *            Class
@@ -172,7 +172,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return LoggerContext.<BR/>
+	 * return LoggerContext.<BR>
 	 *
 	 * @return LoggerContext
 	 */
@@ -182,7 +182,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return PatternLayoutEncoder.<BR/>
+	 * return PatternLayoutEncoder.<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -200,7 +200,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return PatternLayoutEncoder.<BR/>
+	 * return PatternLayoutEncoder.<BR>
 	 *
 	 * @param pattern
 	 *            pattern(if pattern is null, uses default pattern.
@@ -222,7 +222,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return ConsoleAppender.<BR/>
+	 * return ConsoleAppender.<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -240,7 +240,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return FileAppender.<BR/>
+	 * return FileAppender.<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -262,7 +262,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return RollingFileAppender.<BR/>
+	 * return RollingFileAppender.<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -297,7 +297,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return default filename pattern<BR/>
+	 * return default filename pattern<BR>
 	 *
 	 * @param filepath
 	 *            file path
@@ -310,7 +310,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return FixedWindowRollingPolicy.<BR/>
+	 * return FixedWindowRollingPolicy.<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -333,7 +333,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return TimeBasedRollingPolicy<BR/>
+	 * return TimeBasedRollingPolicy<BR>
 	 *
 	 * @param context
 	 *            LoggerContext
@@ -351,7 +351,7 @@ public class LoggerCreator
 	}
 
 	/**
-	 * return size based triggering policy<BR/>
+	 * return size based triggering policy<BR>
 	 *
 	 * @param size
 	 *            file size string(ex: "2MB", "1024KB")
