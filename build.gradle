@@ -50,4 +50,5 @@ publish {
     website = 'https://github.com/greeun/plankton'
     issueTracker = '${website}/issues'
     repository = "${website}.git"
+//  command:  gradle clean build bintrayUpload -PbintrayUser=[id] -PbintrayKey=[api key] -PdryRun=false
 }
