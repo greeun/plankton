@@ -1,10 +1,12 @@
 package com.withwiz.plankton.util;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class IOUtil {
     /**
@@ -69,6 +71,66 @@ public class IOUtil {
         while ((len = br.read(buffer)) > -1) {
             bw.write(buffer, 0, len);
         }
+    }
+
+    /**
+     * get Byte[] inputStream that read from file
+     *
+     * @param file File
+     * @return ByteArrayInputStream
+     */
+    public static ByteArrayInputStream getByteArrayInputStream(File file) throws IOException {
+        return getByteArrayInputStream(file.getAbsolutePath());
+    }
+
+    /**
+     * get Byte[] inputStream that read from file
+     *
+     * @param filepath file path
+     * @return ByteArrayInputStream
+     */
+    public static ByteArrayInputStream getByteArrayInputStream(String filepath) throws IOException {
+        ByteArrayInputStream inputStream = null;
+        Path path = Paths.get(filepath);
+        FileChannel channel = null;
+        ByteBuffer byteBuffer = null;
+        try {
+            channel = FileChannel.open(path, StandardOpenOption.READ);
+            byteBuffer = ByteBuffer.allocate((int) Files.size(path));
+            channel.read(byteBuffer);
+            byteBuffer.flip();
+            byte[] buffer = byteBuffer.array();
+            inputStream = new ByteArrayInputStream(buffer);
+        } finally {
+            if (channel != null) {
+                try {
+                    channel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return inputStream;
+    }
+
+    /**
+     * get inputStream from filepath
+     *
+     * @param filepath file path
+     * @return DataInputStream
+     */
+    public static DataInputStream getDataInputStream(String filepath) throws FileNotFoundException {
+        return getDataInputStream(new File(filepath));
+    }
+
+    /**
+     * get inputStream from filepath
+     *
+     * @param file File instance
+     * @return DataInputStream
+     */
+    public static DataInputStream getDataInputStream(File file) throws FileNotFoundException {
+        return new DataInputStream(new FileInputStream(file));
     }
 
 }
