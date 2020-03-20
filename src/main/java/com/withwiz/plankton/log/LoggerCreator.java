@@ -2,6 +2,7 @@ package com.withwiz.plankton.log;
 
 import ch.qos.logback.core.Appender;
 import ch.qos.logback.core.OutputStreamAppender;
+import ch.qos.logback.core.util.FileSize;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
@@ -356,10 +357,10 @@ public class LoggerCreator
 	 *            file size string(ex: "2MB", "1024KB")
 	 * @return SizeBasedTriggeringPolicy
 	 */
-	protected static TriggeringPolicy getSizeBasedTriggeringPolicy(String size)
+	protected static TriggeringPolicy getSizeBasedTriggeringPolicy(long size)
 	{
 		SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy = new SizeBasedTriggeringPolicy<ILoggingEvent>();
-		triggeringPolicy.setMaxFileSize(size);
+		triggeringPolicy.setMaxFileSize(new FileSize(size));
 		triggeringPolicy.start();
 		return triggeringPolicy;
 	}
