@@ -67,7 +67,7 @@ public class HexUtil {
     /**
      * int value to hex string and hex string to int
      *
-     * @param intValue
+     * @param intValue  int value
      * @return hex int value
      */
     public static int intToHexInt(int intValue) {
@@ -77,7 +77,7 @@ public class HexUtil {
     /**
      * test main
      *
-     * @param args
+     * @param args  arguments
      */
     public static void main(String[] args) {
         System.out.println(HexUtil.intToHexString(1193046, 8));

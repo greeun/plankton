@@ -52,7 +52,7 @@ public class ByteUtil {
     /**
      * convert 8 bytes to long
      *
-     * @param ba
+     * @param ba    byte[]
      * @return long
      */
     public static long bytesToLong(byte[] ba) {
@@ -90,8 +90,8 @@ public class ByteUtil {
     /**
      * convert byte[] to int
      *
-     * @param ba
-     * @param lengthDiv
+     * @param ba    byte[]
+     * @param lengthDiv length for dividing
      * @return int value
      */
     public static int byteArrayToInt(byte[] ba, int lengthDiv) {

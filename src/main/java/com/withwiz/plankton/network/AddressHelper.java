@@ -132,7 +132,7 @@ public class AddressHelper
 	/**
 	 * test main
 	 *
-	 * @param args
+	 * @param args	arguments
 	 */
 	public static void main(String args[])
 	{

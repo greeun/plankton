@@ -15,7 +15,7 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 /**
- * TCP setup class for netty framework.<BR/>
+ * TCP setup class for netty framework.<BR>
  * Created by uni4love on 2016. 12. 13..
  */
 public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
@@ -52,7 +52,7 @@ public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
     }
 
     /**
-     * return a acceptor(boss?) EventLoopGroup for netty.<BR/>
+     * return a acceptor(boss?) EventLoopGroup for netty.<BR>
      *
      * @return EventLoopGroup
      */
@@ -76,14 +76,14 @@ public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
     }
 
     /**
-     * get acceptor(boss?) thread size.<BR/>
+     * get acceptor(boss?) thread size.<BR>
      *
      * @return size
      */
     public abstract int getAcceptorThreadSize();
 
     /**
-     * get backlog size.<BR/>
+     * get backlog size.<BR>
      *
      * @return size
      */

@@ -17,7 +17,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  */
 public class ServerUtil {
     /**
-     * create a acceptor(boss?) EventLoopGroup for netty.<BR/>
+     * create a acceptor(boss?) EventLoopGroup for netty.<BR>
      *
      * @return EventLoopGroup
      */

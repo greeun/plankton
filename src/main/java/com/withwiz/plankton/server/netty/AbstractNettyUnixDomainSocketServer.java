@@ -16,8 +16,8 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 /**
- * Unix Domain Socket setup class for netty framework.<BR/>
- * Created by uni4love on 2016. 12. 13..
+ * Unix Domain Socket setup class for netty framework.<BR>
+ * Created by uni4love on 2019. 12. 13..
  */
 public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyServer {
     /**
@@ -53,7 +53,7 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
     }
 
     /**
-     * return a acceptor(boss?) EventLoopGroup for netty.<BR/>
+     * return a acceptor(boss?) EventLoopGroup for netty.<BR>
      *
      * @return EventLoopGroup
      */
@@ -77,28 +77,28 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
     }
 
     /**
-     * get acceptor(boss?) thread size.<BR/>
+     * get acceptor(boss?) thread size.<BR>
      *
      * @return size
      */
     public abstract int getAcceptorThreadSize();
 
     /**
-     * get backlog size.<BR/>
+     * get backlog size.<BR>
      *
      * @return size
      */
     public abstract int getBacklogSize();
 
     /**
-     * get socket file path.<BR/>
+     * get socket file path.<BR>
      *
      * @return socket file path
      */
     public abstract String getSocketPath();
 
     /**
-     * get use uds(Unix Domain Socket).<BR/>
+     * get use uds(Unix Domain Socket).<BR>
      *
      * @return true/false
      */

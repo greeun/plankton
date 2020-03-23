@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * TCP setup class for netty framework.<BR/>
+ * TCP setup class for netty framework.<BR>
  * Created by uni4love on 2016. 12. 15..
  */
 public abstract class AbstractNettyUdpServer extends AbstractNettyServer {

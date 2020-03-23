@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Default UnixDomain server class.<BR/>
- * Created by uni4love on 2016. 12. 13..
+ * Default UnixDomain server class.<BR>
+ * Created by uni4love on 2019. 12. 13..
  */
 public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainSocketServer {
 

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.net.SocketAddress;
 
 /**
- * Setup class for using netty server framework.<BR/>
+ * Setup class for using netty server framework.<BR>
  * Created by uni4love on 2016. 12. 12..
  */
 public abstract class AbstractNettyServer extends AbstractServer {
@@ -37,8 +37,9 @@ public abstract class AbstractNettyServer extends AbstractServer {
     }
 
     /**
-     * create a EventLoopGroup for netty.<BR/>
+     * create a EventLoopGroup for netty.<BR>
      *
+     * @param threadSize thread size
      * @return EventLoopGroup
      */
     public EventLoopGroup getWorkerEventLoopGroup(int threadSize) {
@@ -49,42 +50,42 @@ public abstract class AbstractNettyServer extends AbstractServer {
     }
 
     /**
-     * get ServerBootstrap for netty.<BR/>
+     * get ServerBootstrap for netty.<BR>
      *
      * @return ServerBootstrap
      */
     protected abstract AbstractBootstrap getBootstrap();
 
     /**
-     * get SocketAddress.<BR/>
+     * get SocketAddress.<BR>
      *
      * @return SocketAddress
      */
     public abstract SocketAddress getSocketAddress();
 
     /**
-     * get use native io.<BR/>
+     * get use native io.<BR>
      *
      * @return true/false
      */
     public abstract boolean isUseNativeIO();
 
     /**
-     * get worker thread size.<BR/>
+     * get worker thread size.<BR>
      *
      * @return size
      */
     protected abstract int getWorkerThreadSize();
 
     /**
-     * get service handler for netty.<BR/>
+     * get service handler for netty.<BR>
      *
      * @return channel handler
      */
     protected abstract ChannelHandler getServiceHandler();
 
     /**
-     * start server.<BR/>
+     * start server.<BR>
      *
      * @param abstractBootstrap
      */

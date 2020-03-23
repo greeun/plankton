@@ -1,7 +1,7 @@
 package com.withwiz.plankton.server;
 
 /**
- * Server component interface.<BR/>
+ * Server component interface.<BR>
  * Created by uni4love on 2016. 12. 12..
  */
 public interface IServer {

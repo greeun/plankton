@@ -108,7 +108,7 @@ public class FileUtil {
      * @param reader       reader
      * @param destFilePath destination path
      * @param enconding    encoding
-     * @throws IOException
+     * @throws IOException  for InputStream, OutputStream
      */
     public static void writeFile(Reader reader, String destFilePath, String enconding)
             throws IOException {

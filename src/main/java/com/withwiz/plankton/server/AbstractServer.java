@@ -1,7 +1,7 @@
 package com.withwiz.plankton.server;
 
 /**
- * Server common interface.<BR/>
+ * Server common interface.<BR>
  * Created by uni4love on 2016. 12. 12..
  */
 abstract public class AbstractServer implements IServer {

@@ -252,7 +252,7 @@ public class DateUtil {
     /**
      * 형태에 맞는 시간을 리턴한다.
      *
-     * @param format format string
+     * @param format time format string
      * @return formatted time string
      */
     public String getTime(String format, boolean useAM_PM) {
@@ -262,8 +262,8 @@ public class DateUtil {
     /**
      * 00:00 형식의 시간을 분(minute)으로 리턴한다.
      *
-     * @param str
-     * @return
+     * @param str time string
+     * @return int  int value for minute
      */
     public static int getMinutes(String str) {
         if (str.startsWith("-")) {
@@ -284,8 +284,8 @@ public class DateUtil {
     /**
      * 0000 형식의 분 표현 시간을 00:00 형식으로 리턴한다.
      *
-     * @param minutes
-     * @return
+     * @param minutes int value for time
+     * @return time string
      */
     public static String getHourMinute(int minutes) {
         int hour = minutes / 60;

@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Default UDP server class.<BR/>
+ * Default UDP server class.<BR>
  * Created by uni4love on 2016. 12. 16..
  */
 abstract public class DefaultNettyUdpServer extends AbstractNettyUdpServer {

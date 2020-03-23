@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Default TCP server class.<BR/>
+ * Default TCP server class.<BR>
  * Created by uni4love on 2016. 12. 13..
  */
 public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
