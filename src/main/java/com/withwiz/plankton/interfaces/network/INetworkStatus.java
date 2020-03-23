@@ -1,4 +1,4 @@
-package com.withwiz.plankton.network;
+package com.withwiz.plankton.interfaces.network;
 
 /**
  * Network utility processing status codes.<BR>

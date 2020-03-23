@@ -1,6 +1,6 @@
 ext {
     name_group = 'com.withwiz'
-    version_project = '0.2.1'
+    version_project = '0.2.2'
     version_slf4j = '1.7.25'
     version_logback = '1.2.3'
     version_httpclient = '4.3.6'
@@ -12,6 +12,7 @@ ext {
 
 apply plugin: 'java'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven'
 
 group ext.name_group
 version ext.version_project

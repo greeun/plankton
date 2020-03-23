@@ -1,5 +1,7 @@
 package com.withwiz.plankton.server;
 
+import com.withwiz.plankton.interfaces.server.IServer;
+
 /**
  * Server common interface.<BR>
  * Created by uni4love on 2016. 12. 12..
