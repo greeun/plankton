@@ -177,7 +177,7 @@ public class AES {
     /**
      * test main
      *
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
         AES.setTransfomation(AES.MODE_CBC_PKCS5PADDING);

@@ -5,9 +5,9 @@ package com.withwiz.plankton.network.message;
  */
 public interface IMessagePart {
     /**
-     * get byte[] for message part.<BR/>
+     * get byte[] for message part.<BR>
      *
-     * @return byte[]
+     * @return byte[] bytes
      */
     byte[] getBytes();
 }
