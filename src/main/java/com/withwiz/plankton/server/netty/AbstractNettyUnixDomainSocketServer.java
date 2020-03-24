@@ -1,6 +1,6 @@
 package com.withwiz.plankton.server.netty;
 
-import com.withwiz.plankton.server.netty.util.ServerUtil;
+import com.withwiz.plankton.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.AbstractBootstrap;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -45,7 +45,7 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
     public AbstractBootstrap getBootstrap() {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(getAcceptorEventLoopGroup(getAcceptorThreadSize()), getWorkerEventLoopGroup(getWorkerThreadSize()))
-                .channel(ServerUtil.getServerChannelClass(isUseNativeIO(), isUds()))
+                .channel(NettyNetworkUtil.getServerSocketChannelClass(isUseNativeIO(), isUds()))
                 .option(ChannelOption.SO_BACKLOG, getBacklogSize())
                 .handler(new LoggingHandler(LogLevel.WARN))
                 .childHandler(getServiceHandler());
@@ -59,7 +59,7 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
      */
     public EventLoopGroup getAcceptorEventLoopGroup(int threadSize) {
         if (acceptorEventLoopGroup == null) {
-            acceptorEventLoopGroup = ServerUtil.createEventLoopGroup(threadSize, isUseNativeIO());
+            acceptorEventLoopGroup = NettyNetworkUtil.createEventLoopGroup(threadSize, isUseNativeIO());
         }
         return acceptorEventLoopGroup;
     }

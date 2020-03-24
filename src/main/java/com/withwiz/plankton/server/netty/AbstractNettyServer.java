@@ -1,7 +1,7 @@
 package com.withwiz.plankton.server.netty;
 
 import com.withwiz.plankton.server.AbstractServer;
-import com.withwiz.plankton.server.netty.util.ServerUtil;
+import com.withwiz.plankton.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.AbstractBootstrap;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.EventLoopGroup;
@@ -44,7 +44,7 @@ public abstract class AbstractNettyServer extends AbstractServer {
      */
     public EventLoopGroup getWorkerEventLoopGroup(int threadSize) {
         if (workerEventLoopGroup == null) {
-            workerEventLoopGroup = ServerUtil.createEventLoopGroup(threadSize, isUseNativeIO());
+            workerEventLoopGroup = NettyNetworkUtil.createEventLoopGroup(threadSize, isUseNativeIO());
         }
         return workerEventLoopGroup;
     }

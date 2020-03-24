@@ -1,6 +1,6 @@
 package com.withwiz.plankton.server.netty;
 
-import com.withwiz.plankton.server.netty.util.ServerUtil;
+import com.withwiz.plankton.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.AbstractBootstrap;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -33,7 +33,7 @@ public abstract class AbstractNettyUdpServer extends AbstractNettyServer {
     public AbstractBootstrap getBootstrap() {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(getWorkerEventLoopGroup(getWorkerThreadSize()))
-                .channel(ServerUtil.getServerChannelClass(isUseNativeIO(), false))
+                .channel(NettyNetworkUtil.getServerSocketChannelClass(isUseNativeIO(), false))
                 .option(ChannelOption.SO_BROADCAST, true)
                 .handler(getServiceHandler());
         return bootstrap;
