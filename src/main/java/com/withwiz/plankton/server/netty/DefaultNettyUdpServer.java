@@ -75,7 +75,7 @@ abstract public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
             @Override
             protected void initChannel(SocketChannel sc) {
                 ChannelPipeline cp = sc.pipeline();
-                cp.addLast(new LoggingHandler(LogLevel.ERROR));
+                cp.addLast(new LoggingHandler(LogLevel.INFO));
                 //add handlers like LoggingHandler...
 
             }

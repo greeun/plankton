@@ -47,7 +47,7 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
         serverBootstrap.group(getAcceptorEventLoopGroup(getAcceptorThreadSize()), getWorkerEventLoopGroup(getWorkerThreadSize()))
                 .channel(NettyNetworkUtil.getServerSocketChannelClass(isUseNativeIO(), isUds()))
                 .option(ChannelOption.SO_BACKLOG, getBacklogSize())
-                .handler(new LoggingHandler(LogLevel.WARN))
+                .handler(new LoggingHandler(LogLevel.INFO))
                 .childHandler(getServiceHandler());
         return serverBootstrap;
     }

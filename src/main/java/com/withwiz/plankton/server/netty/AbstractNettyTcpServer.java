@@ -46,7 +46,7 @@ public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
         serverBootstrap.group(getAcceptorEventLoopGroup(getAcceptorThreadSize()), getWorkerEventLoopGroup(getWorkerThreadSize()))
                 .channel(NettyNetworkUtil.getServerSocketChannelClass(isUseNativeIO(), false))
                 .option(ChannelOption.SO_BACKLOG, getBacklogSize())
-                .handler(new LoggingHandler(LogLevel.WARN))
+                .handler(new LoggingHandler(LogLevel.INFO))
                 .childHandler(getServiceHandler());
         return serverBootstrap;
     }
