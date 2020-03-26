@@ -28,7 +28,7 @@ public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
     /**
      * property: netty.port
      */
-    int port;
+    int port = 18080;
 
     /**
      * property: netty.threads.acceptor
