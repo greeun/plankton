@@ -3,7 +3,7 @@ package com.withwiz.plankton.network.server;
 import com.withwiz.plankton.interfaces.network.server.IServer;
 
 /**
- * Server common interface.<BR>
+ * Server common abstract class.<BR>
  * Created by uni4love on 2016. 12. 12..
  */
 abstract public class AbstractServer implements IServer {
