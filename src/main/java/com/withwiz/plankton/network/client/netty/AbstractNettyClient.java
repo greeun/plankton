@@ -1,11 +1,12 @@
 package com.withwiz.plankton.network.client.netty;
 
-import com.withwiz.plankton.interfaces.network.client.INettyClient;
+import com.withwiz.plankton.network.client.AbstractClient;
 import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.EventLoopGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,7 @@ import java.net.SocketAddress;
 /**
  * implements for netty client
  */
-public abstract class AbstractNettyClient implements INettyClient<byte[]> {
+public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
     /**
      * loggger
      */
@@ -87,7 +88,7 @@ public abstract class AbstractNettyClient implements INettyClient<byte[]> {
      *
      * @return SocketAddress
      */
-    public abstract SocketAddress getSocketAddress();
+    protected abstract SocketAddress getSocketAddress();
 
     /**
      * get use native io.<BR>
@@ -115,5 +116,12 @@ public abstract class AbstractNettyClient implements INettyClient<byte[]> {
      *
      * @param abstractBootstrap
      */
-    protected abstract void connect(Bootstrap abstractBootstrap) throws Exception;
+    public abstract void connect(Bootstrap abstractBootstrap) throws Exception;
+
+    /**
+     * set handler
+     *
+     * @param handler
+     */
+    public abstract void setHandler(ChannelInboundHandlerAdapter handler);
 }

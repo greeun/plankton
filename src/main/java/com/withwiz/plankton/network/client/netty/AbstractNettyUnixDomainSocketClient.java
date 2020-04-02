@@ -12,11 +12,11 @@ import java.net.SocketAddress;
 /**
  * netty client with Unix Domain Socket
  */
-public abstract class AbstractNettyUnixDomainScoketClient extends AbstractNettyClient {
+public abstract class AbstractNettyUnixDomainSocketClient extends AbstractNettyClient {
     /**
      * loggger
      */
-    private static Logger logger = LoggerFactory.getLogger(AbstractNettyUnixDomainScoketClient.class);
+    private static Logger logger = LoggerFactory.getLogger(AbstractNettyUnixDomainSocketClient.class);
 
     /**
      * initialize
