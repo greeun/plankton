@@ -8,8 +8,6 @@ import io.netty.channel.EventLoopGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.SocketAddress;
-
 /**
  * Setup class for using netty server framework.<BR>
  * Created by uni4love on 2016. 12. 12..
@@ -56,12 +54,12 @@ public abstract class AbstractNettyServer extends AbstractServer {
      */
     protected abstract AbstractBootstrap getBootstrap();
 
-    /**
-     * get SocketAddress.<BR>
-     *
-     * @return SocketAddress
-     */
-    public abstract SocketAddress getSocketAddress();
+//    /**
+//     * get SocketAddress.<BR>
+//     *
+//     * @return SocketAddress
+//     */
+//    public abstract SocketAddress getSocketAddress();
 
     /**
      * get use native io.<BR>

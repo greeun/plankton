@@ -1,15 +1,12 @@
 package com.withwiz.plankton.network.server.netty;
 
-import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.AbstractBootstrap;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
+import io.netty.channel.socket.nio.NioDatagramChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 
 /**
  * TCP setup class for netty framework.<BR>
@@ -36,14 +33,16 @@ public abstract class AbstractNettyUdpServer extends AbstractNettyServer {
     public AbstractBootstrap getBootstrap() {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(getWorkerEventLoopGroup(getWorkerThreadSize()))
-                .channel(NettyNetworkUtil.getServerSocketChannelClass(isUseNativeIO(), false))
+                .channel(NioDatagramChannel.class)
                 .option(ChannelOption.SO_BROADCAST, true)
                 .handler(getServiceHandler());
         return bootstrap;
     }
 
-    @Override
-    public SocketAddress getSocketAddress() {
-        return new InetSocketAddress(getPort());
-    }
+//    /**
+//     * get InetAddress for UDP
+//     *
+//     * @return InetAddress
+//     */
+//    public abstract InetAddress getInetAddress();
 }

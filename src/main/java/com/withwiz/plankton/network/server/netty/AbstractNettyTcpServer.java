@@ -11,9 +11,6 @@ import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-
 /**
  * TCP setup class for netty framework.<BR>
  * Created by uni4love on 2016. 12. 13..
@@ -61,11 +58,6 @@ public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
             acceptorEventLoopGroup = NettyNetworkUtil.createEventLoopGroup(threadSize, isUseNativeIO());
         }
         return acceptorEventLoopGroup;
-    }
-
-    @Override
-    public SocketAddress getSocketAddress() {
-        return new InetSocketAddress(getPort());
     }
 
     @Override

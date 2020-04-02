@@ -9,8 +9,6 @@ import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.SocketAddress;
-
 /**
  * Default UDP server class.<BR>
  * Created by uni4love on 2016. 12. 16..
@@ -56,12 +54,6 @@ public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
      * constructor
      */
     public DefaultNettyUdpServer() {
-
-    }
-
-    @Override
-    public SocketAddress getSocketAddress() {
-        return null;
     }
 
     @Override

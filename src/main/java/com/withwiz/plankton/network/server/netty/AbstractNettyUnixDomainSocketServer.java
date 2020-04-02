@@ -64,7 +64,6 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
         return acceptorEventLoopGroup;
     }
 
-    @Override
     public SocketAddress getSocketAddress() {
         return isUds() ? new DomainSocketAddress(getSocketPath()) : new InetSocketAddress(getPort());
     }
