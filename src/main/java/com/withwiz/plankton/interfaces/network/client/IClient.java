@@ -18,7 +18,6 @@ public interface IClient<T> {
      * send T to Weight Module
      *
      * @param data send data
-     * @return response for request
      */
     void send(T data);
 }
