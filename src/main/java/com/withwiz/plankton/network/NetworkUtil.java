@@ -1,6 +1,6 @@
 package com.withwiz.plankton.network;
 
-import com.withwiz.plankton.server.netty.util.NettyNetworkUtil;
+import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.util.internal.PlatformDependent;
 
 /**
