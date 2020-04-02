@@ -1,7 +1,7 @@
-package com.withwiz.plankton.server.netty;
+package com.withwiz.plankton.network.server.netty;
 
-import com.withwiz.plankton.server.AbstractServer;
-import com.withwiz.plankton.server.netty.util.NettyNetworkUtil;
+import com.withwiz.plankton.network.server.AbstractServer;
+import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.AbstractBootstrap;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.EventLoopGroup;

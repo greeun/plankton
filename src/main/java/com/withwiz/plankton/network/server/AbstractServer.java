@@ -1,6 +1,6 @@
-package com.withwiz.plankton.server;
+package com.withwiz.plankton.network.server;
 
-import com.withwiz.plankton.interfaces.server.IServer;
+import com.withwiz.plankton.interfaces.network.server.IServer;
 
 /**
  * Server common interface.<BR>

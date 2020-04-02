@@ -1,4 +1,4 @@
-package com.withwiz.plankton.server.netty;
+package com.withwiz.plankton.network.server.netty;
 
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
@@ -10,20 +10,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Default UnixDomain server class.<BR>
- * Created by uni4love on 2019. 12. 13..
+ * Default TCP server class.<BR>
+ * Created by uni4love on 2016. 12. 13..
  */
-public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainSocketServer {
+public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
 
     /**
      * loggger
      */
-    private final Logger logger = LoggerFactory.getLogger(DefaultNettyUnixDomainSocketServer.class);
-
-    /**
-     * property: netty.uds
-     */
-    boolean isUds = true;
+    private final Logger logger = LoggerFactory.getLogger(DefaultNettyTcpServer.class);
 
     /**
      * property: netty.nativeio
@@ -31,14 +26,9 @@ public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainS
     boolean isUseNativeIO = false;
 
     /**
-     * property: netty.socket.path
-     */
-    String socketPath = "/tmp/uds.sock";
-
-    /**
      * property: netty.port
      */
-    int port;
+    int port = 18080;
 
     /**
      * property: netty.threads.acceptor
@@ -58,26 +48,13 @@ public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainS
     /**
      * constructor
      */
-    public DefaultNettyUnixDomainSocketServer() {
-
-    }
-
-    @Override
-    public boolean isUds() {
-        logger.debug("isUds: {}", isUds);
-        return isUds;
+    public DefaultNettyTcpServer() {
     }
 
     @Override
     public boolean isUseNativeIO() {
         logger.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
-    }
-
-    @Override
-    public String getSocketPath() {
-        logger.debug("socketPath: {}", socketPath);
-        return socketPath;
     }
 
     @Override

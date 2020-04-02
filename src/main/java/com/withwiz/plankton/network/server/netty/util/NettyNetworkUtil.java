@@ -1,4 +1,4 @@
-package com.withwiz.plankton.server.netty.util;
+package com.withwiz.plankton.network.server.netty.util;
 
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.epoll.*;

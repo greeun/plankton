@@ -1,4 +1,4 @@
-package com.withwiz.plankton.server.netty;
+package com.withwiz.plankton.network.server.netty;
 
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
@@ -9,11 +9,13 @@ import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.SocketAddress;
+
 /**
  * Default UDP server class.<BR>
  * Created by uni4love on 2016. 12. 16..
  */
-abstract public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
+public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
 
     /**
      * loggger
@@ -58,6 +60,11 @@ abstract public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
     }
 
     @Override
+    public SocketAddress getSocketAddress() {
+        return null;
+    }
+
+    @Override
     public boolean isUseNativeIO() {
         logger.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
@@ -80,5 +87,10 @@ abstract public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
 
             }
         };
+    }
+
+    @Override
+    public int getPort() {
+        return port;
     }
 }
