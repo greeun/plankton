@@ -24,8 +24,7 @@ public abstract class AbstractNettyTcpClient extends AbstractNettyClient {
     public void connect(Bootstrap abstractBootstrap) throws Exception {
         try {
             channel = abstractBootstrap.connect(getSocketAddress()).sync().channel();
-        } catch (InterruptedException e) {
-            logger.error("message: {}", e);
+        } catch (Exception e) {
             disconnect();
             throw e;
         }
