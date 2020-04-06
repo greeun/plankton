@@ -51,7 +51,8 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
             try {
                 connect();
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("{}", e);
+                return;
             }
         }
 //        clientHandler.getChannelHandlerContext().writeAndFlush(data);
