@@ -31,11 +31,6 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     int workerThreadSize = 10;
 
     /**
-     * user handler
-     */
-    ChannelInboundHandlerAdapter handler = null;
-
-    /**
      * constructor
      */
     public DefaultNettyTcpClient(int port, boolean isUseNativeIO) {
@@ -82,10 +77,5 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
                 }
             }
         };
-    }
-
-    @Override
-    public void setHandler(ChannelInboundHandlerAdapter handler) {
-        this.handler = handler;
     }
 }

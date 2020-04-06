@@ -33,6 +33,11 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
     protected Channel channel = null;
 
     /**
+     * user handler
+     */
+    protected ChannelInboundHandlerAdapter handler = null;
+
+    /**
      * connect
      */
     public void connect() throws Exception {
@@ -77,6 +82,10 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
         return workerEventLoopGroup;
     }
 
+    public void setHandler(ChannelInboundHandlerAdapter handler) {
+        this.handler = handler;
+    }
+
     /**
      * get ServerBootstrap for netty.<BR>
      *
@@ -118,11 +127,4 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
      * @param abstractBootstrap
      */
     public abstract void connect(Bootstrap abstractBootstrap) throws Exception;
-
-    /**
-     * set handler
-     *
-     * @param handler
-     */
-    public abstract void setHandler(ChannelInboundHandlerAdapter handler);
 }

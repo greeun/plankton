@@ -36,11 +36,6 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     int workerThreadSize = 10;
 
     /**
-     * user handler
-     */
-    ChannelInboundHandlerAdapter handler = null;
-
-    /**
      * constructor
      */
     public DefaultNettyUnixDomainSocketClient(boolean isUseUds, String socketPath, boolean isUseNativeIO) {
@@ -98,10 +93,5 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
                 }
             }
         };
-    }
-
-    @Override
-    public void setHandler(ChannelInboundHandlerAdapter handler) {
-        this.handler = handler;
     }
 }
