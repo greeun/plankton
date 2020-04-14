@@ -6,6 +6,8 @@ package com.withwiz.plankton.interfaces.network.client;
 public interface IClient<T> {
     /**
      * connect
+     *
+     * @throws Exception exception
      */
     void connect() throws Exception;
 
@@ -18,6 +20,7 @@ public interface IClient<T> {
      * send T to Weight Module
      *
      * @param data send data
+     * @throws Exception exception
      */
-    void send(T data);
+    void send(T data) throws Exception;
 }

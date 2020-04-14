@@ -51,14 +51,9 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
     }
 
     @Override
-    public void send(byte[] data) {
+    public void send(byte[] data) throws Exception {
         if (!isConnected()) {
-            try {
-                connect();
-            } catch (Exception e) {
-                logger.error("{}", e);
-                return;
-            }
+            throw new Exception("Not connected yet.");
         }
 //        clientHandler.getChannelHandlerContext().writeAndFlush(data);
         channel.writeAndFlush(Unpooled.copiedBuffer(data));
@@ -66,7 +61,7 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
 
     @Override
     public boolean isConnected() {
-        return channel == null ? false : true;
+        return channel == null || !channel.isActive() ? false : true;
     }
 
     /**
