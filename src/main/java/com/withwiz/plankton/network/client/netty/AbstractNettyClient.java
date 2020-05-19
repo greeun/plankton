@@ -3,6 +3,7 @@ package com.withwiz.plankton.network.client.netty;
 import com.withwiz.plankton.network.client.AbstractClient;
 import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
@@ -16,7 +17,7 @@ import java.net.SocketAddress;
 /**
  * implements for netty client
  */
-public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
+public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     /**
      * loggger
      */
@@ -51,12 +52,15 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
     }
 
     @Override
-    public void send(byte[] data) throws Exception {
+    public void send(ByteBuf data) throws Exception {
         if (!isConnected()) {
             throw new Exception("Not connected yet.");
         }
-//        clientHandler.getChannelHandlerContext().writeAndFlush(data);
-        channel.writeAndFlush(Unpooled.copiedBuffer(data));
+        channel.writeAndFlush(data);
+    }
+
+    public void send(byte[] data) throws Exception {
+        send(Unpooled.copiedBuffer(data));
     }
 
     @Override
@@ -119,7 +123,7 @@ public abstract class AbstractNettyClient extends AbstractClient<byte[]> {
     /**
      * connect to server.<BR>
      *
-     * @param abstractBootstrap
+     * @param abstractBootstrap Bootstrap
      */
     public abstract void connect(Bootstrap abstractBootstrap) throws Exception;
 }
