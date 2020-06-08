@@ -37,7 +37,10 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
      * constructor
      */
     public DefaultNettyTcpClient(String host, int port, boolean isUseNativeIO) {
-        socketAddress = new InetSocketAddress(host, port);
+        if (host == null)
+            socketAddress = new InetSocketAddress(host, port);
+        else
+            socketAddress = new InetSocketAddress(port);
         this.isUseNativeIO = isUseNativeIO;
     }
 
