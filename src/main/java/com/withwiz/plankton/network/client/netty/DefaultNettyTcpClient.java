@@ -24,26 +24,20 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     boolean isUseNativeIO = false;
 
     /**
-     * server host
-     */
-    String host = null;
-
-    /**
-     * server port
-     */
-    int port = 18080;
-
-    /**
      * property: netty.threads.worker
      */
     int workerThreadSize = 10;
 
     /**
+     * socket address
+     */
+    SocketAddress socketAddress = null;
+
+    /**
      * constructor
      */
     public DefaultNettyTcpClient(String host, int port, boolean isUseNativeIO) {
-        this.host = host;
-        this.port = port;
+        socketAddress = new InetSocketAddress(host, port);
         this.isUseNativeIO = isUseNativeIO;
     }
 
@@ -59,28 +53,21 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
         return isUseNativeIO;
     }
 
-    public String getHost() {
-        return host;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
     public int getWorkerThreadSize() {
         return workerThreadSize;
     }
 
     @Override
-    protected SocketAddress getSocketAddress() {
-        if (host != null)
-            return new InetSocketAddress(getHost(), getPort());
-        else
-            return new InetSocketAddress(getPort());
+    public SocketAddress getSocketAddress() {
+        return socketAddress;
+    }
+
+    public void setSocketAddress(SocketAddress socketAddress) {
+        this.socketAddress = socketAddress;
     }
 
     @Override
-    protected ChannelHandler getServiceHandler() {
+    public ChannelHandler getServiceHandler() {
         return new ChannelInitializer<Channel>() {
             @Override
             protected void initChannel(Channel sc) {

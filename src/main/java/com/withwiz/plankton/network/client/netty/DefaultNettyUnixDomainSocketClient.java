@@ -78,7 +78,7 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     }
 
     @Override
-    protected ChannelHandler getServiceHandler() {
+    public ChannelHandler getServiceHandler() {
         return new ChannelInitializer<Channel>() {
             @Override
             protected void initChannel(Channel sc) {

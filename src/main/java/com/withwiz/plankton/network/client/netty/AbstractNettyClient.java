@@ -90,14 +90,14 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
      *
      * @return ServerBootstrap
      */
-    protected abstract Bootstrap getBootstrap();
+    public abstract Bootstrap getBootstrap();
 
     /**
      * get SocketAddress.<BR>
      *
      * @return SocketAddress
      */
-    protected abstract SocketAddress getSocketAddress();
+    public abstract SocketAddress getSocketAddress();
 
     /**
      * get use native io.<BR>
@@ -118,7 +118,7 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
      *
      * @return channel handler
      */
-    protected abstract ChannelHandler getServiceHandler();
+    public abstract ChannelHandler getServiceHandler();
 
     /**
      * connect to server.<BR>

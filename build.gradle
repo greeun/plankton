@@ -1,6 +1,6 @@
 ext {
     name_group = 'com.withwiz'
-    version_project = '0.2.14'
+    version_project = '0.2.15'
     version_slf4j = '1.7.25'
     version_logback = '1.2.3'
     version_httpclient = '4.3.6'
