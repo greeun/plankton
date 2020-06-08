@@ -6,9 +6,6 @@ import io.netty.channel.ChannelOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-
 /**
  * netty client with TCP
  */
@@ -39,16 +36,4 @@ public abstract class AbstractNettyTcpClient extends AbstractNettyClient {
                 .handler(getServiceHandler());
         return bootstrap;
     }
-
-    @Override
-    public SocketAddress getSocketAddress() {
-        return new InetSocketAddress(getPort());
-    }
-
-    /**
-     * get port
-     *
-     * @return port number
-     */
-    public abstract int getPort();
 }

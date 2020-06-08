@@ -6,6 +6,9 @@ import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+
 /**
  * Default TCP client class.<BR>
  */
@@ -21,6 +24,11 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     boolean isUseNativeIO = false;
 
     /**
+     * server host
+     */
+    String host = null;
+
+    /**
      * server port
      */
     int port = 18080;
@@ -33,7 +41,8 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     /**
      * constructor
      */
-    public DefaultNettyTcpClient(int port, boolean isUseNativeIO) {
+    public DefaultNettyTcpClient(String host, int port, boolean isUseNativeIO) {
+        this.host = host;
         this.port = port;
         this.isUseNativeIO = isUseNativeIO;
     }
@@ -41,24 +50,33 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     /**
      * constructor
      */
-    public DefaultNettyTcpClient(int workerThreadSize, int port, boolean isUseNativeIO) {
-        this(port, isUseNativeIO);
+    public DefaultNettyTcpClient(String host, int port, int workerThreadSize, boolean isUseNativeIO) {
+        this(host, port, isUseNativeIO);
         this.workerThreadSize = workerThreadSize;
     }
 
     public boolean isUseNativeIO() {
-        logger.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
+    public String getHost() {
+        return host;
+    }
+
     public int getPort() {
-        logger.debug("port: {}", port);
         return port;
     }
 
     public int getWorkerThreadSize() {
-        logger.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
+    }
+
+    @Override
+    protected SocketAddress getSocketAddress() {
+        if (host != null)
+            return new InetSocketAddress(getHost(), getPort());
+        else
+            return new InetSocketAddress(getPort());
     }
 
     @Override
@@ -70,7 +88,7 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
                 cp.addLast(new LoggingHandler(LogLevel.DEBUG));
 //            cp.addLast(new ByteArrayDecoder());
 //            cp.addLast(new ByteArrayEncoder());
-                if(handler == null) {
+                if (handler == null) {
                     logger.error("User handler is NULL!");
                 } else {
                     cp.addLast(handler);
