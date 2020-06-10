@@ -1,6 +1,7 @@
 package com.withwiz.plankton.network.client.netty;
 
 import io.netty.channel.*;
+import io.netty.channel.unix.DomainSocketAddress;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
@@ -26,11 +27,6 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     boolean isUseNativeIO = false;
 
     /**
-     * property: netty.socket.path
-     */
-    String socketPath = "/tmp/uds.sock";
-
-    /**
      * property: netty.threads.worker
      */
     int workerThreadSize = 10;
@@ -38,17 +34,18 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     /**
      * constructor
      */
-    public DefaultNettyUnixDomainSocketClient(boolean isUseUds, String socketPath, boolean isUseNativeIO) {
+    public DefaultNettyUnixDomainSocketClient(String socketPath, boolean isUseUds, boolean isUseNativeIO) {
+        socketAddress = new DomainSocketAddress(socketPath);
+        logger.debug("this is constructor3.");
         this.isUseUds = isUseUds;
-        this.socketPath = socketPath;
         this.isUseNativeIO = isUseNativeIO;
     }
 
     /**
      * constructor
      */
-    public DefaultNettyUnixDomainSocketClient(int workerThreadSize, boolean isUseUds, String socketPath, boolean isUseNativeIO) {
-        this(isUseUds, socketPath, isUseNativeIO);
+    public DefaultNettyUnixDomainSocketClient(String socketPath, int workerThreadSize, boolean isUseUds, boolean isUseNativeIO) {
+        this(socketPath, isUseUds, isUseNativeIO);
         this.workerThreadSize = workerThreadSize;
     }
 
@@ -60,11 +57,6 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     public boolean isUseNativeIO() {
         logger.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
-    }
-
-    public String getSocketPath() {
-        logger.debug("socketPath: {}", socketPath);
-        return socketPath;
     }
 
     public int getWorkerThreadSize() {

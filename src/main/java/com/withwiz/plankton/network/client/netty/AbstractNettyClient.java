@@ -24,6 +24,16 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     private static Logger logger = LoggerFactory.getLogger(AbstractNettyClient.class);
 
     /**
+     * bootstrap
+     */
+    protected Bootstrap bootstrap = null;
+
+    /**
+     * socket address
+     */
+    protected SocketAddress socketAddress = null;
+
+    /**
      * event loop group: worker
      */
     private EventLoopGroup workerEventLoopGroup = null;
@@ -39,10 +49,33 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     protected ChannelInboundHandlerAdapter handler = null;
 
     /**
+     * constructor
+     */
+    public AbstractNettyClient() {
+//        bootstrap = createBootstrap();
+    }
+
+    /**
      * connect
      */
     public void connect() throws Exception {
+        if (bootstrap == null) {
+            bootstrap = createBootstrap();
+        }
+        logger.debug("Bootstrap: {}", bootstrap);
         connect(getBootstrap());
+    }
+
+    /**
+     * connect
+     */
+    public void connect(Bootstrap bootstrap) throws Exception {
+        try {
+            channel = bootstrap.connect(getSocketAddress()).sync().channel();
+        } catch (Exception e) {
+            disconnect();
+            throw e;
+        }
     }
 
     @Override
@@ -86,18 +119,31 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     }
 
     /**
-     * get ServerBootstrap for netty.<BR>
+     * get bootstrap
      *
-     * @return ServerBootstrap
+     * @return Bootstrap
      */
-    public abstract Bootstrap getBootstrap();
+    public Bootstrap getBootstrap() {
+        return bootstrap;
+    }
 
     /**
-     * get SocketAddress.<BR>
+     * get SocketAddress
      *
      * @return SocketAddress
      */
-    public abstract SocketAddress getSocketAddress();
+    public SocketAddress getSocketAddress() {
+        return socketAddress;
+    }
+
+    /**
+     * set SocketAddress
+     *
+     * @param socketAddress SocketAddress
+     */
+    public void setSocketAddress(SocketAddress socketAddress) {
+        this.socketAddress = socketAddress;
+    }
 
     /**
      * get use native io.<BR>
@@ -114,16 +160,16 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     public abstract int getWorkerThreadSize();
 
     /**
+     * create and return Bootstrap
+     *
+     * @return Bootstrap
+     */
+    public abstract Bootstrap createBootstrap();
+
+    /**
      * get service handler for netty.<BR>
      *
      * @return channel handler
      */
     public abstract ChannelHandler getServiceHandler();
-
-    /**
-     * connect to server.<BR>
-     *
-     * @param abstractBootstrap Bootstrap
-     */
-    public abstract void connect(Bootstrap abstractBootstrap) throws Exception;
 }

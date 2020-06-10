@@ -15,25 +15,11 @@ public abstract class AbstractNettyTcpClient extends AbstractNettyClient {
      */
     private static Logger logger = LoggerFactory.getLogger(AbstractNettyTcpClient.class);
 
-    /**
-     * initialize
-     */
-    public void connect(Bootstrap abstractBootstrap) throws Exception {
-        try {
-            channel = abstractBootstrap.connect(getSocketAddress()).sync().channel();
-        } catch (Exception e) {
-            disconnect();
-            throw e;
-        }
-    }
-
     @Override
-    public Bootstrap getBootstrap() {
-        Bootstrap bootstrap = new Bootstrap();
-        bootstrap.group(getWorkerEventLoopGroup(getWorkerThreadSize()))
+    public Bootstrap createBootstrap() {
+        return new Bootstrap().group(getWorkerEventLoopGroup(getWorkerThreadSize()))
                 .channel(NettyNetworkUtil.getClientSocketChannelClass(isUseNativeIO(), false))
                 .option(ChannelOption.SO_LINGER, 0)
                 .handler(getServiceHandler());
-        return bootstrap;
     }
 }

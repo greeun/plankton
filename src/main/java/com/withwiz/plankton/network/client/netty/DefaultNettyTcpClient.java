@@ -1,13 +1,15 @@
 package com.withwiz.plankton.network.client.netty;
 
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 
 /**
  * Default TCP client class.<BR>
@@ -29,18 +31,13 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     int workerThreadSize = 10;
 
     /**
-     * socket address
-     */
-    SocketAddress socketAddress = null;
-
-    /**
      * constructor
      */
     public DefaultNettyTcpClient(String host, int port, boolean isUseNativeIO) {
         if (host == null)
-            socketAddress = new InetSocketAddress(host, port);
-        else
             socketAddress = new InetSocketAddress(port);
+        else
+            socketAddress = new InetSocketAddress(host, port);
         this.isUseNativeIO = isUseNativeIO;
     }
 
@@ -58,15 +55,6 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
 
     public int getWorkerThreadSize() {
         return workerThreadSize;
-    }
-
-    @Override
-    public SocketAddress getSocketAddress() {
-        return socketAddress;
-    }
-
-    public void setSocketAddress(SocketAddress socketAddress) {
-        this.socketAddress = socketAddress;
     }
 
     @Override
