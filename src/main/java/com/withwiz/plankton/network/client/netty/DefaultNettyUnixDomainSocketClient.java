@@ -14,7 +14,7 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     /**
      * loggger
      */
-    private static Logger logger = LoggerFactory.getLogger(DefaultNettyUnixDomainSocketClient.class);
+    private static Logger log = LoggerFactory.getLogger(DefaultNettyUnixDomainSocketClient.class);
 
     /**
      * property: netty.uds
@@ -36,7 +36,7 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
      */
     public DefaultNettyUnixDomainSocketClient(String socketPath, boolean isUseUds, boolean isUseNativeIO) {
         socketAddress = new DomainSocketAddress(socketPath);
-        logger.debug("this is constructor3.");
+        log.debug("this is constructor3.");
         this.isUseUds = isUseUds;
         this.isUseNativeIO = isUseNativeIO;
     }
@@ -44,29 +44,27 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
     /**
      * constructor
      */
-    public DefaultNettyUnixDomainSocketClient(String socketPath, int workerThreadSize, boolean isUseUds, boolean isUseNativeIO) {
+    public DefaultNettyUnixDomainSocketClient(String socketPath, boolean isUseUds, boolean isUseNativeIO, int workerThreadSize) {
         this(socketPath, isUseUds, isUseNativeIO);
         this.workerThreadSize = workerThreadSize;
     }
 
-    public boolean isUseUds() {
-        logger.debug("isUds: {}", isUseUds);
-        return isUseUds;
-    }
-
+    @Override
     public boolean isUseNativeIO() {
-        logger.debug("isUseNativeIO: {}", isUseNativeIO);
+        log.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
+    @Override
     public int getWorkerThreadSize() {
-        logger.debug("workerThreadSize: {}", workerThreadSize);
+        log.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
     }
 
     @Override
-    public boolean isUds() {
-        return true;
+    public boolean isUseUds() {
+        log.debug("isUds: {}", isUseUds);
+        return isUseUds;
     }
 
     @Override
@@ -79,7 +77,7 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
 //            cp.addLast(new ByteArrayDecoder());
 //            cp.addLast(new ByteArrayEncoder());
                 if(handler == null) {
-                    logger.error("User handler is NULL!");
+                    log.error("User handler is NULL!");
                 } else {
                     cp.addLast(handler);
                 }

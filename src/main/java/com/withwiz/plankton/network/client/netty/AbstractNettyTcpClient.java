@@ -13,7 +13,7 @@ public abstract class AbstractNettyTcpClient extends AbstractNettyClient {
     /**
      * loggger
      */
-    private static Logger logger = LoggerFactory.getLogger(AbstractNettyTcpClient.class);
+    private static Logger log = LoggerFactory.getLogger(AbstractNettyTcpClient.class);
 
     @Override
     public Bootstrap createBootstrap() {

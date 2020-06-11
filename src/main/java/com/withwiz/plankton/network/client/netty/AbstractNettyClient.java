@@ -5,10 +5,7 @@ import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,17 +55,6 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     /**
      * connect
      */
-    public void connect() throws Exception {
-        if (bootstrap == null) {
-            bootstrap = createBootstrap();
-        }
-        logger.debug("Bootstrap: {}", bootstrap);
-        connect(getBootstrap());
-    }
-
-    /**
-     * connect
-     */
     public void connect(Bootstrap bootstrap) throws Exception {
         try {
             channel = bootstrap.connect(getSocketAddress()).sync().channel();
@@ -78,10 +64,26 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
         }
     }
 
+    /**
+     * connect
+     */
+    @Override
+    public void connect() throws Exception {
+        if (bootstrap == null) {
+            bootstrap = createBootstrap();
+        }
+        logger.debug("Bootstrap: {}", bootstrap);
+        connect(getBootstrap());
+    }
+
     @Override
     public void disconnect() {
         if (workerEventLoopGroup != null)
             workerEventLoopGroup.shutdownGracefully();
+    }
+
+    public void send(byte[] data) throws Exception {
+        send(Unpooled.copiedBuffer(data));
     }
 
     @Override
@@ -90,10 +92,6 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
             throw new Exception("Not connected yet.");
         }
         channel.writeAndFlush(data);
-    }
-
-    public void send(byte[] data) throws Exception {
-        send(Unpooled.copiedBuffer(data));
     }
 
     @Override

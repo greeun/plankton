@@ -17,9 +17,8 @@ public abstract class AbstractNettyUnixDomainSocketClient extends AbstractNettyC
 
     @Override
     public Bootstrap createBootstrap() {
-        logger.warn("this is createBootstrap.");
         return new Bootstrap().group(getWorkerEventLoopGroup(getWorkerThreadSize()))
-                .channel(NettyNetworkUtil.getClientSocketChannelClass(isUseNativeIO(), isUds()))
+                .channel(NettyNetworkUtil.getClientSocketChannelClass(isUseNativeIO(), isUseUds()))
                 .option(ChannelOption.SO_LINGER, 0)
                 .handler(getServiceHandler());
     }
@@ -29,5 +28,5 @@ public abstract class AbstractNettyUnixDomainSocketClient extends AbstractNettyC
      *
      * @return true/false
      */
-    public abstract boolean isUds();
+    public abstract boolean isUseUds();
 }

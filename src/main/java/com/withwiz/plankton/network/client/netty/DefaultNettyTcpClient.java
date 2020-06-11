@@ -44,15 +44,17 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
     /**
      * constructor
      */
-    public DefaultNettyTcpClient(String host, int port, int workerThreadSize, boolean isUseNativeIO) {
+    public DefaultNettyTcpClient(String host, int port, boolean isUseNativeIO, int workerThreadSize) {
         this(host, port, isUseNativeIO);
         this.workerThreadSize = workerThreadSize;
     }
 
+    @Override
     public boolean isUseNativeIO() {
         return isUseNativeIO;
     }
 
+    @Override
     public int getWorkerThreadSize() {
         return workerThreadSize;
     }
