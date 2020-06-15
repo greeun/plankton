@@ -1,21 +1,17 @@
 package com.withwiz.plankton.network.client.netty;
 
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 import io.netty.channel.unix.DomainSocketAddress;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Default UnixDomainSocket client class.<BR>
  */
 public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainSocketClient {
-    /**
-     * loggger
-     */
-    private static Logger log = LoggerFactory.getLogger(DefaultNettyUnixDomainSocketClient.class);
-
     /**
      * property: netty.uds
      */

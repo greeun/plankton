@@ -8,19 +8,12 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * TCP setup class for netty framework.<BR>
  * Created by uni4love on 2016. 12. 13..
  */
 public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
-    /**
-     * loggger
-     */
-    private final Logger logger = LoggerFactory.getLogger(AbstractNettyTcpServer.class);
-
     /**
      * event loop group: acceptor
      */
@@ -32,7 +25,7 @@ public abstract class AbstractNettyTcpServer extends AbstractNettyServer {
             ChannelFuture channelFuture = abstractBootstrap.bind(getPort()).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {
-            logger.error("message: ", e);
+            log.error("message: ", e);
             stop();
         }
     }

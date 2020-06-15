@@ -6,8 +6,6 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 
@@ -15,11 +13,6 @@ import java.net.InetSocketAddress;
  * Default TCP client class.<BR>
  */
 public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
-    /**
-     * loggger
-     */
-    private static Logger logger = LoggerFactory.getLogger(DefaultNettyTcpClient.class);
-
     /**
      * property: netty.nativeio
      */
@@ -69,7 +62,7 @@ public class DefaultNettyTcpClient extends AbstractNettyTcpClient {
 //            cp.addLast(new ByteArrayDecoder());
 //            cp.addLast(new ByteArrayEncoder());
                 if (handler == null) {
-                    logger.error("User handler is NULL!");
+                    log.error("User handler is NULL!");
                 } else {
                     cp.addLast(handler);
                 }

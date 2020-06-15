@@ -6,20 +6,12 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Default TCP server class.<BR>
  * Created by uni4love on 2016. 12. 13..
  */
 public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
-
-    /**
-     * loggger
-     */
-    private final Logger logger = LoggerFactory.getLogger(DefaultNettyTcpServer.class);
-
     /**
      * property: netty.nativeio
      */
@@ -53,7 +45,7 @@ public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
 
     @Override
     public boolean isUseNativeIO() {
-        logger.debug("isUseNativeIO: {}", isUseNativeIO);
+        log.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
@@ -64,19 +56,19 @@ public class DefaultNettyTcpServer extends AbstractNettyTcpServer {
 
     @Override
     public int getAcceptorThreadSize() {
-        logger.debug("acceptorThreadSize: {}", acceptorThreadSize);
+        log.debug("acceptorThreadSize: {}", acceptorThreadSize);
         return acceptorThreadSize;
     }
 
     @Override
     public int getWorkerThreadSize() {
-        logger.debug("workerThreadSize: {}", workerThreadSize);
+        log.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
     }
 
     @Override
     public int getBacklogSize() {
-        logger.debug("backlogSize: {}", backlogSize);
+        log.debug("backlogSize: {}", backlogSize);
         return backlogSize;
     }
 

@@ -16,7 +16,7 @@ public abstract class AbstractNettyServer extends AbstractServer {
     /**
      * loggger
      */
-    private final Logger logger = LoggerFactory.getLogger(AbstractNettyServer.class);
+    protected Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * event loop group: worker

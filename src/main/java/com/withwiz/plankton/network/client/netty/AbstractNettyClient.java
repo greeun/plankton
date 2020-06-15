@@ -18,7 +18,7 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     /**
      * loggger
      */
-    private static Logger logger = LoggerFactory.getLogger(AbstractNettyClient.class);
+    protected Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * bootstrap
@@ -33,7 +33,7 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
     /**
      * event loop group: worker
      */
-    private EventLoopGroup workerEventLoopGroup = null;
+    protected EventLoopGroup workerEventLoopGroup = null;
 
     /**
      * channel
@@ -72,7 +72,7 @@ public abstract class AbstractNettyClient extends AbstractClient<ByteBuf> {
         if (bootstrap == null) {
             bootstrap = createBootstrap();
         }
-        logger.debug("Bootstrap: {}", bootstrap);
+        log.debug("Bootstrap: {}", bootstrap);
         connect(getBootstrap());
     }
 

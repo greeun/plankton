@@ -21,11 +21,6 @@ import java.net.SocketAddress;
  */
 public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyServer {
     /**
-     * loggger
-     */
-    private final Logger logger = LoggerFactory.getLogger(AbstractNettyUnixDomainSocketServer.class);
-
-    /**
      * event loop group: acceptor
      */
     private EventLoopGroup acceptorEventLoopGroup = null;
@@ -36,7 +31,7 @@ public abstract class AbstractNettyUnixDomainSocketServer extends AbstractNettyS
             ChannelFuture channelFuture = abstractBootstrap.bind(getSocketAddress()).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {
-            logger.error("message: ", e);
+            log.error("message: ", e);
             stop();
         }
     }

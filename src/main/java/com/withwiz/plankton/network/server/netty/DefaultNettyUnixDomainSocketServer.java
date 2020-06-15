@@ -6,20 +6,12 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Default UnixDomain server class.<BR>
  * Created by uni4love on 2019. 12. 13..
  */
 public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainSocketServer {
-
-    /**
-     * loggger
-     */
-    private final Logger logger = LoggerFactory.getLogger(DefaultNettyUnixDomainSocketServer.class);
-
     /**
      * property: netty.uds
      */
@@ -64,19 +56,19 @@ public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainS
 
     @Override
     public boolean isUds() {
-        logger.debug("isUds: {}", isUds);
+        log.debug("isUds: {}", isUds);
         return isUds;
     }
 
     @Override
     public boolean isUseNativeIO() {
-        logger.debug("isUseNativeIO: {}", isUseNativeIO);
+        log.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
     @Override
     public String getSocketPath() {
-        logger.debug("socketPath: {}", socketPath);
+        log.debug("socketPath: {}", socketPath);
         return socketPath;
     }
 
@@ -87,19 +79,19 @@ public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainS
 
     @Override
     public int getAcceptorThreadSize() {
-        logger.debug("acceptorThreadSize: {}", acceptorThreadSize);
+        log.debug("acceptorThreadSize: {}", acceptorThreadSize);
         return acceptorThreadSize;
     }
 
     @Override
     public int getWorkerThreadSize() {
-        logger.debug("workerThreadSize: {}", workerThreadSize);
+        log.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
     }
 
     @Override
     public int getBacklogSize() {
-        logger.debug("backlogSize: {}", backlogSize);
+        log.debug("backlogSize: {}", backlogSize);
         return backlogSize;
     }
 
@@ -111,7 +103,6 @@ public class DefaultNettyUnixDomainSocketServer extends AbstractNettyUnixDomainS
                 ChannelPipeline cp = sc.pipeline();
                 cp.addLast(new LoggingHandler(LogLevel.INFO));
                 //add handlers like LoggingHandler...
-
             }
         };
     }

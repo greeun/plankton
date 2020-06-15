@@ -6,20 +6,12 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Default UDP server class.<BR>
  * Created by uni4love on 2016. 12. 16..
  */
 public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
-
-    /**
-     * loggger
-     */
-    private final Logger logger = LoggerFactory.getLogger(DefaultNettyUdpServer.class);
-
     /**
      * property: netty.uds
      */
@@ -58,13 +50,13 @@ public class DefaultNettyUdpServer extends AbstractNettyUdpServer {
 
     @Override
     public boolean isUseNativeIO() {
-        logger.debug("isUseNativeIO: {}", isUseNativeIO);
+        log.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
     @Override
     public int getWorkerThreadSize() {
-        logger.debug("workerThreadSize: {}", workerThreadSize);
+        log.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
     }
 
