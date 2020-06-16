@@ -1,10 +1,10 @@
 ext {
     name_group = 'com.withwiz'
-    version_project = '0.2.21'
+    version_project = '0.2.22'
     version_slf4j = '1.7.30'
     version_logback = '1.2.3'
     version_httpclient = '4.3.6'
-    version_netty = '4.1.20.Final'
+    version_netty = '4.1.50.Final'
     version_junit = '4.11'
     version_java = '1.8'
     project_build_sourceEncoding = 'UTF-8'
