@@ -135,6 +135,33 @@ public class LoggerCreator
 	}
 
 	/**
+	 * get ROOT logger
+	 *
+	 * @return Logger
+	 */
+	public static Logger getRootLogger() {
+		return (Logger)LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+	}
+
+	/**
+	 * set ROOT logger level
+	 *
+	 * @param level log level
+	 */
+	public static void setRootLoggerLevel(Level level) {
+		getRootLogger().setLevel(level);
+	}
+
+	/**
+	 * set ROOT logger level
+	 *
+	 * @param level level
+	 */
+	protected void setRootLoggerLevel(String level) {
+		setRootLoggerLevel(Level.toLevel(level));
+	}
+
+	/**
 	 * create Logger and return.<BR>
 	 * 
 	 * @param clz
@@ -163,7 +190,7 @@ public class LoggerCreator
 	 *            log level
 	 * @return Logger
 	 */
-	protected static Logger getLoggerWithoutAppender(Class clz, int level)
+	public static Logger getLoggerWithoutAppender(Class clz, int level)
 	{
 		// logger
 		Logger logger = (Logger) LoggerFactory.getLogger(clz);
@@ -176,7 +203,7 @@ public class LoggerCreator
 	 *
 	 * @return LoggerContext
 	 */
-	protected static LoggerContext getLoggerContext()
+	public static LoggerContext getLoggerContext()
 	{
 		return (LoggerContext) LoggerFactory.getILoggerFactory();
 	}
@@ -190,7 +217,7 @@ public class LoggerCreator
 	 *            pattern
 	 * @return PatternLayoutEncoder
 	 */
-	protected static PatternLayoutEncoder getPatternLayoutEncoder(
+	public static PatternLayoutEncoder getPatternLayoutEncoder(
 			LoggerContext context, String pattern)
 	{
 		PatternLayoutEncoder encoder = getPatternLayoutEncoder(pattern);
@@ -206,7 +233,7 @@ public class LoggerCreator
 	 *            pattern(if pattern is null, uses default pattern.
 	 * @return PatternLayoutEncoder
 	 */
-	protected static PatternLayoutEncoder getPatternLayoutEncoder(
+	public static PatternLayoutEncoder getPatternLayoutEncoder(
 			String pattern)
 	{
 		PatternLayoutEncoder ple = new PatternLayoutEncoder();
@@ -230,7 +257,7 @@ public class LoggerCreator
 	 *            PatternLayoutEncoder
 	 * @return ConsoleAppender
 	 */
-	protected static ConsoleAppender getConsoleAppender(LoggerContext context,
+	public static ConsoleAppender getConsoleAppender(LoggerContext context,
 			PatternLayoutEncoder logPatternLayoutEncoder)
 	{
 		ConsoleAppender consoleAppender = new ConsoleAppender();
@@ -250,7 +277,7 @@ public class LoggerCreator
 	 *            file path
 	 * @return FileAppender
 	 */
-	protected static FileAppender getFileAppender(LoggerContext context,
+	public static FileAppender getFileAppender(LoggerContext context,
 			PatternLayoutEncoder logPatternLayoutEncoder, String filepath)
 	{
 		FileAppender fileAppender = new FileAppender();
@@ -272,7 +299,7 @@ public class LoggerCreator
 	 *            file path
 	 * @return RollingFileAppender
 	 */
-	protected static RollingFileAppender getRollingFileAppender(
+	public static RollingFileAppender getRollingFileAppender(
 			LoggerContext context, PatternLayoutEncoder logPatternLayoutEncoder,
 			String filepath, String filenamePattern)
 	{
@@ -303,7 +330,7 @@ public class LoggerCreator
 	 *            file path
 	 * @return filename pattern
 	 */
-	protected static String getDefaultFilenamePattern(String filepath)
+	public static String getDefaultFilenamePattern(String filepath)
 	{
 		String filepathPattern = filepath + FILENAME_PATTERN_DEFAULT;
 		return filepathPattern;
@@ -320,7 +347,7 @@ public class LoggerCreator
 	 *            filename pattern
 	 * @return FixedRollingPolicy
 	 */
-	protected static RollingPolicy getFixedWindowRollingPolicy(
+	public static RollingPolicy getFixedWindowRollingPolicy(
 			LoggerContext context, FileAppender fileAppender,
 			String filenamePattern)
 	{
@@ -341,7 +368,7 @@ public class LoggerCreator
 	 *            file name pattern
 	 * @return TimeBasedRollingPolicy
 	 */
-	protected static RollingPolicy getTimeBasedRollingPolicy(
+	public static RollingPolicy getTimeBasedRollingPolicy(
 			LoggerContext context, String filenamePattern)
 	{
 		TimeBasedRollingPolicy<ILoggingEvent> timeBasedRollingPolicy = new TimeBasedRollingPolicy<ILoggingEvent>();
@@ -357,7 +384,7 @@ public class LoggerCreator
 	 *            file size string(ex: "2MB", "1024KB")
 	 * @return SizeBasedTriggeringPolicy
 	 */
-	protected static TriggeringPolicy getSizeBasedTriggeringPolicy(long size)
+	public static TriggeringPolicy getSizeBasedTriggeringPolicy(long size)
 	{
 		SizeBasedTriggeringPolicy<ILoggingEvent> triggeringPolicy = new SizeBasedTriggeringPolicy<ILoggingEvent>();
 		triggeringPolicy.setMaxFileSize(new FileSize(size));
@@ -375,6 +402,9 @@ public class LoggerCreator
 		String filepath = System.getProperty("user.home") + "/test.log";
 		String filenamePattern = System.getProperty("user.home")
 				+ "/out-%d{yyyy-MM-dd_HH}.log";
+
+		LoggerCreator.setRootLoggerLevel(Level.INFO);
+
 		Logger log1 = LoggerCreator.getConsoleLogger(LoggerCreator.class, null,
 				LoggerCreator.LEVEL_DEBUG);
 		log1.debug("This is debug.");
@@ -392,5 +422,7 @@ public class LoggerCreator
 		log3.debug("This is debug: log3");
 		log3.info("This is info: log3");
 		log3.error("This is error: log3");
+
+
 	}
 }
