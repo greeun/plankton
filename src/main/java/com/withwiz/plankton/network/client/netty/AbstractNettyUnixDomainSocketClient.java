@@ -13,7 +13,6 @@ public abstract class AbstractNettyUnixDomainSocketClient extends AbstractNettyC
     public Bootstrap createBootstrap() {
         return new Bootstrap().group(getWorkerEventLoopGroup(getWorkerThreadSize()))
                 .channel(NettyNetworkUtil.getClientSocketChannelClass(isUseNativeIO(), isUseUds()))
-                .option(ChannelOption.SO_LINGER, 0)
                 .handler(getServiceHandler());
     }
 
