@@ -2,7 +2,6 @@ package com.withwiz.plankton.network.client.netty;
 
 import com.withwiz.plankton.network.server.netty.util.NettyNetworkUtil;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelOption;
 
 /**
  * netty client with Unix Domain Socket

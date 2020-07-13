@@ -32,7 +32,6 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
      */
     public DefaultNettyUnixDomainSocketClient(String socketPath, boolean isUseUds, boolean isUseNativeIO) {
         socketAddress = new DomainSocketAddress(socketPath);
-        log.debug("this is constructor3.");
         this.isUseUds = isUseUds;
         this.isUseNativeIO = isUseNativeIO;
     }
@@ -47,19 +46,16 @@ public class DefaultNettyUnixDomainSocketClient extends AbstractNettyUnixDomainS
 
     @Override
     public boolean isUseNativeIO() {
-        log.debug("isUseNativeIO: {}", isUseNativeIO);
         return isUseNativeIO;
     }
 
     @Override
     public int getWorkerThreadSize() {
-        log.debug("workerThreadSize: {}", workerThreadSize);
         return workerThreadSize;
     }
 
     @Override
     public boolean isUseUds() {
-        log.debug("isUds: {}", isUseUds);
         return isUseUds;
     }
 
