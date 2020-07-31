@@ -1,5 +1,7 @@
 package com.withwiz.plankton.conversion;
 
+import org.apache.commons.codec.binary.Hex;
+
 /**
  * Hex util class
  */
@@ -11,7 +13,7 @@ public class HexUtil {
      * @param hexString hex string
      * @return int value
      */
-    public static int hexStringToInt(String hexString) {
+    public static int toInt(String hexString) {
         return Integer.parseInt(hexString.replaceFirst("^0x", ""), 16);
     }
 
@@ -21,7 +23,7 @@ public class HexUtil {
      * @param hex hex string
      * @return text
      */
-    public static String hexToString(String hex) {
+    public static String toString(String hex) {
 
         StringBuilder sb = new StringBuilder();
         StringBuilder temp = new StringBuilder();
@@ -44,34 +46,22 @@ public class HexUtil {
     }
 
     /**
-     * convert int to Hex string
+     * convert hex String to bytearray
      *
-     * @param value int value
-     * @return hex string
+     * @param hexString hex string
+     * @return byte[]
      */
-    public static String intToHexString(int value) {
-        return Integer.toHexString(value);
-    }
+    public static byte[] toByteArray(String hexString) {
+        if (hexString == null || hexString.length() == 0) {
+            return null;
+        }
+        hexString = hexString.replace("0x", "");
 
-    /**
-     * convert int to Hex string
-     *
-     * @param value int value
-     * @param digit digit
-     * @return hex string
-     */
-    public static String intToHexString(int value, int digit) {
-        return String.format("%0" + (digit * 2) + "X", value);
-    }
-
-    /**
-     * int value to hex string and hex string to int
-     *
-     * @param intValue  int value
-     * @return hex int value
-     */
-    public static int intToHexInt(int intValue) {
-        return Integer.parseInt(intToHexString(intValue));
+        byte[] ba = new byte[hexString.length() / 2];
+        for (int i = 0; i < ba.length; i++) {
+            ba[i] = (byte) Integer.parseInt(hexString.substring(2 * i, 2 * i + 2), 16);
+        }
+        return ba;
     }
 
     /**
@@ -80,6 +70,10 @@ public class HexUtil {
      * @param args  arguments
      */
     public static void main(String[] args) {
-        System.out.println(HexUtil.intToHexString(1193046, 8));
+        int src = 1193046;
+        String hexString = IntUtil.toHexString(src, 8);
+        System.out.println("src: " + src);
+        System.out.println("hex: " + hexString);
+        System.out.println("decoded: " + HexUtil.toInt(hexString));
     }
 }

@@ -1,5 +1,7 @@
 package com.withwiz.plankton.conversion;
 
+import java.nio.ByteBuffer;
+
 /**
  * byte utility class
  */
@@ -10,10 +12,10 @@ public class ByteUtil {
      * @param ba byte array
      * @return binary string
      */
-    public static String byteArrayToBinaryString(byte[] ba) {
+    public static String toBinaryString(byte[] ba) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ba.length; ++i) {
-            sb.append(byteToBinaryString(ba[i]));
+            sb.append(toBinaryString(ba[i]));
         }
         return sb.toString();
     }
@@ -24,7 +26,7 @@ public class ByteUtil {
      * @param b byte
      * @return binary string
      */
-    public static String byteToBinaryString(byte b) {
+    public static String toBinaryString(byte b) {
         StringBuilder sb = new StringBuilder("00000000");
         for (int bit = 0; bit < 8; bit++) {
             if (((b >> bit) & 1) > 0) {
@@ -40,7 +42,7 @@ public class ByteUtil {
      * @param l long
      * @return byte[]
      */
-    public static byte[] longToBytes(long l) {
+    public static byte[] toBytes(long l) {
         byte[] result = new byte[8];
         for (int i = 7; i >= 0; i--) {
             result[i] = (byte) (l & 0xFF);
@@ -52,10 +54,10 @@ public class ByteUtil {
     /**
      * convert 8 bytes to long
      *
-     * @param ba    byte[]
+     * @param ba byte[]
      * @return long
      */
-    public static long bytesToLong(byte[] ba) {
+    public static long toLong(byte[] ba) {
         long result = 0;
         for (int i = 7; i >= 0; i--) {
             result <<= 8;
@@ -67,16 +69,16 @@ public class ByteUtil {
     /**
      * convert int to byte[]
      *
-     * @param value     int value
-     * @param lengthDiv size(2 or 4)
+     * @param value           int value
+     * @param sizeOfByteArray size(2 or 4)
      * @return byte[]
      */
-    public static byte[] intToByteArray(int value, int lengthDiv) {
-        byte[] byteArray = new byte[lengthDiv];
-        if (lengthDiv == 2) {
+    public static byte[] toByteArray(int value, int sizeOfByteArray) {
+        byte[] byteArray = new byte[sizeOfByteArray];
+        if (sizeOfByteArray == 2) {
             byteArray[0] = (byte) value;
             byteArray[1] = (byte) (value >>> 8);
-        } else if (lengthDiv == 4) {
+        } else if (sizeOfByteArray == 4) {
             byteArray[0] = (byte) (value >> 24);
             byteArray[1] = (byte) (value >> 16);
             byteArray[2] = (byte) (value >> 8);
@@ -85,16 +87,42 @@ public class ByteUtil {
         return byteArray;
     }
 
+    /**
+     * convert int to byte[]
+     *
+     * @param value           int value
+     * @param sizeOfByteArray byte[] size
+     * @return byte[]
+     */
+    public static byte[] toByteArray2(int value, int sizeOfByteArray) {
+        byte[] ba = new byte[sizeOfByteArray];
+        for (int i = 0; i < sizeOfByteArray; i++) {
+            int offset = (ba.length - 1 - i) * 8;
+            ba[i] = (byte) ((value >>> offset) & 0xFF);
+        }
+        return ba;
+    }
+
+    /**
+     * convert int to byte[]
+     *
+     * @param value int value
+     * @return byte[]
+     */
+    public static byte[] toByteArray(int value) {
+        return ByteBuffer.allocate(4).putInt(value).array();
+    }
+
     /* 4or2 bytearray  to int 변환*/
 
     /**
      * convert byte[] to int
      *
-     * @param ba    byte[]
+     * @param ba        byte[]
      * @param lengthDiv length for dividing
      * @return int value
      */
-    public static int byteArrayToInt(byte[] ba, int lengthDiv) {
+    public static int toInt(byte[] ba, int lengthDiv) {
         int byteInt = 0;
         if (lengthDiv == 2) {
             byteInt = ((ba[1] & 0xFF) << 8) | (ba[0] & 0xFF);
@@ -107,6 +135,22 @@ public class ByteUtil {
         return byteInt;
     }
 
+    /**
+     * convert byte[] to int
+     *
+     * @param ba byte[]
+     * @return int value
+     */
+    public static int toInt(byte[] ba) {
+        int value = 0;
+        int length = ba.length;  // length of byte array
+        for (int i = 0; i < length; i++) {
+            int shift = (length - 1 - i) * 8;
+            value += (ba[i] & 0x000000FF) << shift;
+        }
+        return value;
+    }
+
     /* shot to byte 변환 */
 
     /**
@@ -116,10 +160,10 @@ public class ByteUtil {
      * @param order big(1) or little endian(0)
      * @return byte[]
      */
-    public static byte[] shortToBytes(short Value, int order) {
+    public static byte[] toByteArray(short Value, int order) {
         byte[] temp;
         temp = new byte[]{(byte) ((Value & 0xFF00) >> 8), (byte) (Value & 0x00FF)};
-        temp = ChangeByteOrder(temp, order);
+        temp = byteOrder(temp, order);
         return temp;
     }
 
@@ -130,7 +174,7 @@ public class ByteUtil {
      * @param order big(1) or little endian(0)
      * @return byte[]
      */
-    public static byte[] ChangeByteOrder(byte[] value, int order) {
+    public static byte[] byteOrder(byte[] value, int order) {
         int idx = value.length;
         byte[] Temp = new byte[idx];
         //BIG_EDIAN
@@ -190,21 +234,15 @@ public class ByteUtil {
     }
 
     /**
-     * convert hex String to bytearray
+     * test main
      *
-     * @param hex hex string
-     * @return byte[]
+     * @param args
      */
-    public static byte[] hexToByteArray(String hex) {
-        if (hex == null || hex.length() == 0) {
-            return null;
-        }
-        hex = hex.replace("0x", "");
-
-        byte[] ba = new byte[hex.length() / 2];
-        for (int i = 0; i < ba.length; i++) {
-            ba[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
-        }
-        return ba;
+    public static void main(String[] args) {
+        int i = 100;
+        System.out.println("value: " + i + " --> " + IntUtil.toHexString(i));
+        System.out.println("value: " + i + " --> " + IntUtil.toHexString(i));
+        System.out.println("value: " + i + " --> " + ByteUtil.toHexString(ByteUtil.toByteArray(i, 4)));
+        System.out.println("value: " + i + " --> " + ByteUtil.toHexString(ByteUtil.toByteArray2(i, 4)));
     }
 }
