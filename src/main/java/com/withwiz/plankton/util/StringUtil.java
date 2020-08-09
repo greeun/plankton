@@ -1,5 +1,6 @@
 package com.withwiz.plankton.util;
 
+import com.withwiz.plankton.conversion.ByteUtil;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
@@ -507,6 +508,18 @@ public class StringUtil
             }
         return nRet;
     }
+
+	/**
+	 * get byte array with fixed length
+	 *
+	 * @param src source
+	 * @param fixedLength fixed length
+	 * @param paddingByte padding byte
+	 * @return byte array
+	 */
+	public static byte[] getBytesWithFixedLength(String src, int fixedLength, byte paddingByte) {
+		return ByteUtil.getBytesWithFixedLength(src.getBytes(), fixedLength, paddingByte);
+	}
 
 	/**
 	 * test main

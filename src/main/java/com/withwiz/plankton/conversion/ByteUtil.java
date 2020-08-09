@@ -154,6 +154,28 @@ public class ByteUtil {
     }
 
     /**
+     * get byte array with fixed length
+     *
+     * @param src source
+     * @param fixedLength fixed length
+     * @param paddingByte padding byte
+     * @return byte array
+     */
+    public static byte[] getBytesWithFixedLength(byte[] src, int fixedLength, byte paddingByte) {
+        byte[] baTar = new byte[fixedLength];
+        if (src.length > baTar.length) {
+            System.arraycopy(src, 0, baTar, 0, baTar.length);
+        } else {
+            System.arraycopy(src, 0, baTar, 0, src.length);
+            //padding
+            for(int i = src.length; i<baTar.length; i++) {
+                baTar[i] = paddingByte;
+            }
+        }
+        return baTar;
+    }
+
+    /**
      * test main
      *
      * @param args
