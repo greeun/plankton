@@ -14,9 +14,19 @@ public class MethodExecutor
 	private static final ExecutorService THREAD_POOL = Executors
 			.newCachedThreadPool();
 
-	public static <T> T timedCall(Callable<T> callable, long timeout,
-			TimeUnit timeUnit) throws InterruptedException, ExecutionException,
-					TimeoutException
+	/**
+	 * timed call
+	 *
+	 * @param callable Callable
+	 * @param timeout timeout
+	 * @param timeUnit time unit
+	 * @return T
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 * @throws TimeoutException
+	 */
+	public static <T> T timedCall(Callable<T> callable, long timeout, TimeUnit timeUnit)
+			throws InterruptedException, ExecutionException, TimeoutException
 	{
 		FutureTask<T> task = new FutureTask<T>(callable);
 		THREAD_POOL.execute(task);
