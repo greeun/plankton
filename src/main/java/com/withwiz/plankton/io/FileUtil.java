@@ -1,4 +1,4 @@
-package com.withwiz.plankton.util;
+package com.withwiz.plankton.io;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
