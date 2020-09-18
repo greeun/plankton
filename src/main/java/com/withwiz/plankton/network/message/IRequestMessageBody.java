@@ -1,4 +1,4 @@
-package com.withwiz.plankton.interfaces.network.message;
+package com.withwiz.plankton.network.message;
 
 /**
  * Request message body interface

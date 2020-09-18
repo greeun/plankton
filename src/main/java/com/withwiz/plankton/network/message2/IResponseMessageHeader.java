@@ -1,4 +1,4 @@
-package com.withwiz.plankton.interfaces.network.message2;
+package com.withwiz.plankton.network.message2;
 
 /**
  * Response message header interface
