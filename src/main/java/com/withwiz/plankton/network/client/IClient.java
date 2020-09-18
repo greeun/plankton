@@ -1,4 +1,4 @@
-package com.withwiz.plankton.interfaces.network.client;
+package com.withwiz.plankton.network.client;
 
 /**
  * client interface

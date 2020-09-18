@@ -1,7 +1,5 @@
 package com.withwiz.plankton.network.client;
 
-import com.withwiz.plankton.interfaces.network.client.IClient;
-
 /**
  * Client common abstract class.<BR>
  *
