@@ -1,7 +1,5 @@
 package com.withwiz.plankton.network.server;
 
-import com.withwiz.plankton.interfaces.network.server.IServer;
-
 /**
  * Server common abstract class.<BR>
  * Created by uni4love on 2016. 12. 12..

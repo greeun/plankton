@@ -1,4 +1,4 @@
-package com.withwiz.plankton.interfaces.network.server;
+package com.withwiz.plankton.network.server;
 
 /**
  * Server component interface.<BR>
