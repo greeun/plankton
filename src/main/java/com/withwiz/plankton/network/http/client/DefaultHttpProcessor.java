@@ -459,7 +459,7 @@ public class DefaultHttpProcessor
 		IHttpResponseMessage responseMessage = null;
 		int status = -1;
 		HttpUriRequest httpUriRequest = null;
-		InputStream inputStream = null;
+		InputStream responseBodyInputStream = null;
 		Header[] responseHeaders = null;
 		try
 		{
@@ -490,11 +490,11 @@ public class DefaultHttpProcessor
 			{
 				ProxyInputStream pis = new ProxyInputStream(
 						entity.getContent());
-				inputStream = pis.getNewInputStream();
+				responseBodyInputStream = pis.getNewInputStream();
 			}
 			else
 			{
-				inputStream = entity.getContent();
+				responseBodyInputStream = entity.getContent();
 			}
 		}
 		catch (Exception e)
@@ -553,7 +553,7 @@ public class DefaultHttpProcessor
 		finally
 		{
 			responseMessage = createHttpResponseMessage(requestMessage, status,
-					responseHeaders, inputStream);
+					responseHeaders, responseBodyInputStream);
 			log.debug("ResponseMessage:\n{}", responseMessage.toString());
 		}
 		return responseMessage;
@@ -705,7 +705,7 @@ public class DefaultHttpProcessor
 		DefaultHttpRequestMessage req = new DefaultHttpRequestMessage();
 		try
 		{
-			req.setUrl("https://www.rgate.net:15001/webman/index.cgi");
+			req.setUrl("https://www.naver.com/");
 			req.setMethod(DefaultHttpRequestMessage.METHOD_POST);
 			// body data
 			StringInputStream inputStream = new StringInputStream(
