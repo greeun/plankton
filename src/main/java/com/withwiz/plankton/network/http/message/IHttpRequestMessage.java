@@ -1,7 +1,7 @@
 package com.withwiz.plankton.network.http.message;
 
 /**
- * HTTP Request message interface.<BR/>
+ * HTTP Request message interface.<BR>
  * Created by uni4love on 2012.07.20..
  */
 public interface IHttpRequestMessage extends IHttpMessage
@@ -33,50 +33,50 @@ public interface IHttpRequestMessage extends IHttpMessage
 	int getBodyType();
 
 	/**
-	 * set connection timeout.<BR/>
+	 * set connection timeout.<BR>
 	 * @param connectionTimeout
      */
 	void setConnectionTimeout(int connectionTimeout);
 
 	/**
-	 * return connection timeout.<BR/>
+	 * return connection timeout.<BR>
 	 *
 	 * @return connection timeout(milliseconds)
 	 */
 	int getConnectionTimeout();
 
 	/**
-	 * set socket timeout.<BR/>
+	 * set socket timeout.<BR>
 	 */
 	void setSocketTimeout(int socketTimeout);
 
 	/**
-	 * return socket timeout.<BR/>
+	 * return socket timeout.<BR>
 	 *
 	 * @return socket timeout(milliseconds)
 	 */
 	int getSocketTimeout();
 
 	/**
-	 * set network buffer size.<BR/>
+	 * set network buffer size.<BR>
 	 */
 	void setNetworkBufferSize(int networkBufferSize);
 
 	/**
-	 * return network buffer size.<BR/>
+	 * return network buffer size.<BR>
 	 *
 	 * @return network buffer size(bytes)
 	 */
 	int getNetworkBufferSize();
 
 	/**
-	 * set trust ssl.<BR/>
+	 * set trust ssl.<BR>
 	 * @param isTrustSsl use or not
      */
 	void setTrustSsl(boolean isTrustSsl);
 
 	/**
-	 * return use or not for trusting ssl.<BR/>
+	 * return use or not for trusting ssl.<BR>
 	 * @return
      */
 	boolean isTrustSsl();

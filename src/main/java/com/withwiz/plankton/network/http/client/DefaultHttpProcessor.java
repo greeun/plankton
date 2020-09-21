@@ -53,24 +53,24 @@ import java.util.Vector;
 
 /**
  * This implements IHttpProcessor interface with
- * org.apache.http.client.HttpClient.<BR/>
+ * org.apache.http.client.HttpClient.<BR>
  * Created by uni4love on 2010. 5. 8.
  */
 public class DefaultHttpProcessor
 		implements IHttpProcessor<IHttpRequestMessage, IHttpResponseMessage>
 {
 	/**
-	 * connection timeout: 10seconds<BR/>
+	 * connection timeout: 10seconds<BR>
 	 */
 	public static final int DEFAULT_CONNECTION_TIMEOUT = 10000;
 
 	/**
-	 * socket timeout: 10seconds<BR/>
+	 * socket timeout: 10seconds<BR>
 	 */
 	public static final int DEFAULT_SOCKET_TIME = 10000;
 
 	/**
-	 * default network buffer size: 8192bytes<BR/>
+	 * default network buffer size: 8192bytes<BR>
 	 */
 	public static final int DEFAULT_NETWORK_BUFFER_SIZE = 8192;
 
@@ -139,7 +139,7 @@ public class DefaultHttpProcessor
 	Logger log = LoggerFactory.getLogger(DefaultHttpProcessor.class);
 
 	/**
-	 * use writing response to file or not.<BR/>
+	 * use writing response to file or not.<BR>
 	 */
 	private boolean isWritingResponseToFile = false;
 
@@ -186,7 +186,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * This method create HttpClient instance.<BR/>
+	 * This method create HttpClient instance.<BR>
 	 *
 	 * @return HttpClient
 	 */
@@ -284,7 +284,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * close this service.<BR/>
+	 * close this service.<BR>
 	 */
 	public void close()
 	{
@@ -295,7 +295,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * return HTTP method instance.<BR/>
+	 * return HTTP method instance.<BR>
 	 *
 	 * @param message
 	 *            DefaultHttpMessage
@@ -447,7 +447,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * process for HTTP request.<BR/>
+	 * process for HTTP request.<BR>
 	 *
 	 * @param requestMessage
 	 *            DefaultHttpRequestMessage
@@ -607,7 +607,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * return file path for saving response.<BR/>
+	 * return file path for saving response.<BR>
 	 *
 	 * @return file path
 	 */
@@ -617,7 +617,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * set file path for saving response.<BR/>
+	 * set file path for saving response.<BR>
 	 *
 	 * @param responseFilePath
 	 *            file path
@@ -629,7 +629,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * return use or not for saving response.<BR/>
+	 * return use or not for saving response.<BR>
 	 *
 	 * @return use or not
 	 */
@@ -639,7 +639,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * set use or not for saving response.<BR/>
+	 * set use or not for saving response.<BR>
 	 *
 	 * @param writingResponseToFile
 	 *            use or not
@@ -650,7 +650,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * return HttpClient.<BR/>
+	 * return HttpClient.<BR>
 	 *
 	 * @return HttpClient instance
 	 */
@@ -660,7 +660,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * set HttpClient instance.<BR/>
+	 * set HttpClient instance.<BR>
 	 *
 	 * @param httpClient
 	 *            HttpClient instance
@@ -671,7 +671,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * return use or not proxy for saving HTTP response.<BR/>
+	 * return use or not proxy for saving HTTP response.<BR>
 	 *
 	 * @return use or not
 	 */
@@ -681,7 +681,7 @@ public class DefaultHttpProcessor
 	}
 
 	/**
-	 * set use or not proxy for saving HTTP response.<BR/>
+	 * set use or not proxy for saving HTTP response.<BR>
 	 *
 	 * @param isProxyResponseData
 	 *            use or not

@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * IHttpMessage interface implements.<BR/>
+ * IHttpMessage interface implements.<BR>
  * Created by uni4love on 2010.05.08..
  */
 abstract public class HttpMessage extends HttpStatusExtended
@@ -174,7 +174,7 @@ abstract public class HttpMessage extends HttpStatusExtended
 	}
 
 	/**
-	 * return HTTP method code Set instance.<BR/>
+	 * return HTTP method code Set instance.<BR>
 	 *
 	 * @return Set
 	 */
@@ -184,7 +184,7 @@ abstract public class HttpMessage extends HttpStatusExtended
 	}
 
 	/**
-	 * add a string for code.<BR/>
+	 * add a string for code.<BR>
 	 * 
 	 * @param code
 	 *            code
@@ -197,7 +197,7 @@ abstract public class HttpMessage extends HttpStatusExtended
 	}
 
     /**
-     * add a header parameter.<BR/>
+     * add a header parameter.<BR>
      *
      * @param key
      *            key
@@ -211,7 +211,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * add header parameters.<BR/>
+     * add header parameters.<BR>
      * @param parameters header parameters
      */
     @Override
@@ -224,7 +224,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return value related with key.<BR/>
+     * return value related with key.<BR>
      *
      * @param key
      *            key
@@ -237,7 +237,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return key list array from header parameter list.<BR/>
+     * return key list array from header parameter list.<BR>
      *
      * @return key String[]
      */
@@ -252,7 +252,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return header parameter size.<BR/>
+     * return header parameter size.<BR>
      *
      * @return size
      */
@@ -263,7 +263,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * add a parameter.<BR/>
+     * add a parameter.<BR>
      *
      * @param key
      *            key
@@ -277,7 +277,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * add parameters.<BR/>
+     * add parameters.<BR>
      *
      * @param parameters parameters
      */
@@ -291,7 +291,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return value related with key.<BR/>
+     * return value related with key.<BR>
      *
      * @param key
      *            key
@@ -304,7 +304,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return key list array from parameter list.<BR/>
+     * return key list array from parameter list.<BR>
      *
      * @return key String[]
      */
@@ -319,7 +319,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return parameter size.<BR/>
+     * return parameter size.<BR>
      *
      * @return size
      */
@@ -330,7 +330,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return InputStream for body.<BR/>
+     * return InputStream for body.<BR>
      *
      * @return InputStream
      */
@@ -341,7 +341,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set InputStream for body.<BR/>
+     * set InputStream for body.<BR>
      *
      * @param inputStream
      *            InputStream for body
@@ -353,7 +353,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return body contents as byte[].<BR/>
+     * return body contents as byte[].<BR>
      *
      * @return body content byte[]
      */
@@ -388,7 +388,7 @@ abstract public class HttpMessage extends HttpStatusExtended
         return null;
     }
     /**
-     * return using HTTP method.<BR/>
+     * return using HTTP method.<BR>
      *
      * @return HTTP method
      */
@@ -400,7 +400,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set HTTP method.<BR/>
+     * set HTTP method.<BR>
      *
      * @param method
      *            HTTP method
@@ -412,7 +412,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return status code.<BR/>
+     * return status code.<BR>
      *
      * @return status code
      */
@@ -423,7 +423,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set status code.<BR/>
+     * set status code.<BR>
      *
      * @param statusCode
      *            status code
@@ -435,7 +435,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return header list.<BR/>
+     * return header list.<BR>
      *
      * @return headers map
      */
@@ -445,7 +445,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set header list.<BR/>
+     * set header list.<BR>
      *
      * @param headers
      *            headers map
@@ -456,7 +456,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return use or not for attaching file.<BR/>
+     * return use or not for attaching file.<BR>
      *
      * @return use or not
      */
@@ -469,7 +469,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return attachement file name.<BR/>
+     * return attachement file name.<BR>
      *
      * @return attach file name
      */
@@ -481,7 +481,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set attachment file name.<BR/>
+     * set attachment file name.<BR>
      *
      * @param attachmentFileName
      *
@@ -493,7 +493,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return body length<BR/>
+     * return body length<BR>
      *
      * @return body length
      */
@@ -504,7 +504,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * return use or not for SSL trusting.<BR/>
+     * return use or not for SSL trusting.<BR>
      *
      * @return use or not
      */
@@ -515,7 +515,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * set use or not for SSL trusting.<BR/>
+     * set use or not for SSL trusting.<BR>
      *
      * @param isTrustSsl
      *            use or not
@@ -550,7 +550,7 @@ abstract public class HttpMessage extends HttpStatusExtended
     }
 
     /**
-     * user define message name.<BR/>
+     * user define message name.<BR>
      * @return name
      */
     abstract public String getName();

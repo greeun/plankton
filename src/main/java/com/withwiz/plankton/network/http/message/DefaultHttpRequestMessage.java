@@ -3,7 +3,7 @@ package com.withwiz.plankton.network.http.message;
 import java.net.MalformedURLException;
 
 /**
- * HTTP request message.<BR/>
+ * HTTP request message.<BR>
  * Created by uni4love on 2010. 5. 8..
  */
 public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHttpRequestMessage
@@ -29,19 +29,19 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	protected String attachFilePath = null;
 
 	/**
-	 * connection timeout<br/>
+	 * connection timeout<BR>
 	 * default: 10 seconds
 	 */
 	private int connectionTimeout = UNDEFINED;
 
 	/**
-	 * socket timeout<br/>
+	 * socket timeout<BR>
 	 * default: 10 seconds
 	 */
 	private int socketTimeout = UNDEFINED;
 
 	/**
-	 * network data buffer size<br/>
+	 * network data buffer size<BR>
 	 * default: 8k
 	 */
 	private int networkBufferSize = UNDEFINED;
@@ -113,7 +113,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * return connection timeout.<BR/>
+	 * return connection timeout.<BR>
 	 *
 	 * @return connection timeout(milliseconds)
 	 */
@@ -124,7 +124,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * set connection timeout<BR/>
+	 * set connection timeout<BR>
 	 *
 	 * @param connectionTimeout
 	 *            connection timeout(milliseconds)
@@ -136,7 +136,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * return socket timeout.<BR/>
+	 * return socket timeout.<BR>
 	 *
 	 * @return socket timeout(milliseconds)
 	 */
@@ -147,7 +147,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * set socket timeout.<BR/>
+	 * set socket timeout.<BR>
 	 *
 	 * @param socketTimeout
 	 *            socket timeout(milliseconds)
@@ -159,7 +159,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * return network buffer size.<BR/>
+	 * return network buffer size.<BR>
 	 *
 	 * @return network buffer size(bytes)
 	 */
@@ -175,7 +175,7 @@ public class DefaultHttpRequestMessage extends DefaultHttpMessage implements IHt
 	}
 
 	/**
-	 * set network buffer size.<BR/>
+	 * set network buffer size.<BR>
 	 *
 	 * @param networkBufferSize
 	 *            network buffer size(bytes)

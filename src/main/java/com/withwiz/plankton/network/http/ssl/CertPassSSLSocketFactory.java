@@ -13,7 +13,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 /**
- * SSLSocketFactory overrided.<BR/>
+ * SSLSocketFactory overrided.<BR>
  * Created by uni4love on 2010. 5. 1..
  */
 public class CertPassSSLSocketFactory extends SSLSocketFactory

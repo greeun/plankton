@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * HTTP common message<BR/>
+ * HTTP common message<BR>
  * Created by uni4love on 2010. 5. 8..
  */
 public class DefaultHttpMessage extends HttpMessage
@@ -69,7 +69,7 @@ public class DefaultHttpMessage extends HttpMessage
 	}
 
 	/**
-	 * return name.<BR/>
+	 * return name.<BR>
 	 *
 	 * @return name
 	 */
@@ -80,7 +80,7 @@ public class DefaultHttpMessage extends HttpMessage
 	}
 
 	/**
-	 * set this message name.<BR/>
+	 * set this message name.<BR>
 	 *
 	 * @param name
 	 */
@@ -90,7 +90,7 @@ public class DefaultHttpMessage extends HttpMessage
 	}
 
 	/**
-	 * return text encoding.<BR/>
+	 * return text encoding.<BR>
 	 *
 	 * @return text encoding
 	 */

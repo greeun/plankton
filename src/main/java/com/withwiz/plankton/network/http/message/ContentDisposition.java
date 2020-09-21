@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * HTTP header parameter: "Content-Disposition" definition.<BR/>
+ * HTTP header parameter: "Content-Disposition" definition.<BR>
  */
 public class ContentDisposition
 {
@@ -74,7 +74,7 @@ public class ContentDisposition
     }
 
     /**
-     * return Content-Disposition object.<BR/>
+     * return Content-Disposition object.<BR>
      *
      * @param data
      *            data

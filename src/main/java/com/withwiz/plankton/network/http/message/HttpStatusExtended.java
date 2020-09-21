@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Extra status code defined.<BR/>
+ * Extra status code defined.<BR>
  * Created by uni4love on 2010. 5. 4..
  */
 abstract public class HttpStatusExtended implements INetworkStatus, HttpStatus
@@ -50,7 +50,7 @@ abstract public class HttpStatusExtended implements INetworkStatus, HttpStatus
 	}
 
 	/**
-	 * return text for HTTP status code.<BR/>
+	 * return text for HTTP status code.<BR>
 	 *
 	 * @param code
 	 *            status code

@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.Map;
 
 /**
- * HTTP message interface.<BR/>
+ * HTTP message interface.<BR>
  * Created by uni4love on 2010. 5. 4..
  */
 public interface IHttpMessage
@@ -32,7 +32,7 @@ public interface IHttpMessage
 	int METHOD_DELETE = 4;
 
 	/**
-	 * add a header parameter.<BR/>
+	 * add a header parameter.<BR>
 	 *
 	 * @param key
 	 *            key
@@ -42,7 +42,7 @@ public interface IHttpMessage
 	void addHeaderParameter(String key, String value);
 
 	/**
-	 * add header parameters.<BR/>
+	 * add header parameters.<BR>
 	 *
 	 * @param headerParameters
 	 *            header parameters
@@ -50,7 +50,7 @@ public interface IHttpMessage
 	void addHeaderParameters(Map<String, String> headerParameters);
 
 	/**
-	 * return a header parameter from header values.<BR/>
+	 * return a header parameter from header values.<BR>
 	 *
 	 * @param key
 	 *            key
@@ -59,21 +59,21 @@ public interface IHttpMessage
 	String getHeaderValue(String key);
 
 	/**
-	 * return names key String[] of header parameters.<BR/>
+	 * return names key String[] of header parameters.<BR>
 	 *
 	 * @return key String[]
 	 */
 	String[] getHeaderNames();
 
 	/**
-	 * return header parameters size.<BR/>
+	 * return header parameters size.<BR>
 	 *
 	 * @return size
 	 */
 	int getHeaderSize();
 
 	/**
-	 * add a parameter.<BR/>
+	 * add a parameter.<BR>
 	 *
 	 * @param key
 	 *            key
@@ -83,7 +83,7 @@ public interface IHttpMessage
 	void addParameter(String key, String value);
 
 	/**
-	 * add parameters.<BR/>
+	 * add parameters.<BR>
 	 * 
 	 * @param parameters
 	 *            parameter list
@@ -91,7 +91,7 @@ public interface IHttpMessage
 	void addParameters(Map<String, String> parameters);
 
 	/**
-	 * return a parameter value.<BR/>
+	 * return a parameter value.<BR>
 	 *
 	 * @param key
 	 *            key
@@ -100,28 +100,28 @@ public interface IHttpMessage
 	String getParameterValue(String key);
 
 	/**
-	 * return names key String[] fo parameters.<BR/>
+	 * return names key String[] fo parameters.<BR>
 	 *
 	 * @return key String[]
 	 */
 	String[] getParameterNames();
 
 	/**
-	 * return parameter size.<BR/>
+	 * return parameter size.<BR>
 	 *
 	 * @return size
 	 */
 	int getParameterSize();
 
 	/**
-	 * return InputStream for HTTP body.<BR/>
+	 * return InputStream for HTTP body.<BR>
 	 *
 	 * @return body InputStream
 	 */
 	InputStream getBodyInputStream();
 
 	/**
-	 * set InputStream for HTTP body.<BR/>
+	 * set InputStream for HTTP body.<BR>
 	 *
 	 * @param inputStream
 	 *            body InputStream
@@ -129,14 +129,14 @@ public interface IHttpMessage
 	void setBodyInputStream(InputStream inputStream);
 
 	/**
-	 * return use Https or not.<BR/>
+	 * return use Https or not.<BR>
 	 *
 	 * @return use or not
 	 */
 	boolean isHttps();
 
 	/**
-	 * set use Https or not.<BR/>
+	 * set use Https or not.<BR>
 	 *
 	 * @param isHttps
 	 *            use or not
@@ -144,26 +144,26 @@ public interface IHttpMessage
 	void setHttps(boolean isHttps);
 
 	/**
-	 * return Http method type.<BR/>
+	 * return Http method type.<BR>
 	 *
 	 * @return method type
 	 */
 	int getMethod();
 
 	/**
-	 * set Http method type.<BR/>
+	 * set Http method type.<BR>
 	 */
 	void setMethod(int method);
 
 	/**
-	 * return Http status code.<BR/>
+	 * return Http status code.<BR>
 	 *
 	 * @return status code
 	 */
 	int getStatusCode();
 
 	/**
-	 * set Http status code.<BR/>
+	 * set Http status code.<BR>
 	 *
 	 * @param statusCode
 	 *            status code
@@ -171,14 +171,14 @@ public interface IHttpMessage
 	void setStatusCode(int statusCode);
 
 	/**
-	 * return text encoding type.<BR/>
+	 * return text encoding type.<BR>
 	 *
 	 * @return encoding
 	 */
 	String getTextEncoding();
 
 	/**
-	 * set text encoding type.<BR/>
+	 * set text encoding type.<BR>
 	 *
 	 * @param encoding
 	 *            encoding type
@@ -186,14 +186,14 @@ public interface IHttpMessage
 	void setTextEncoding(String encoding);
 
 	/**
-	 * return URL.<BR/>
+	 * return URL.<BR>
 	 *
 	 * @return URL object
 	 */
 	URL getUrl();
 
 	/**
-	 * set URL.<BR/>
+	 * set URL.<BR>
 	 *
 	 * @param url
 	 *            URL object
@@ -201,21 +201,21 @@ public interface IHttpMessage
 	void setUrl(URL url) throws MalformedURLException;
 
 	/**
-	 * return service url text.<BR/>
+	 * return service url text.<BR>
 	 *
 	 * @return service url
 	 */
 	String getUrlString();
 
 	/**
-	 * return body length<BR/>
+	 * return body length<BR>
 	 *
 	 * @return body length
 	 */
 	long getBodyLength();
 
 	/**
-	 * return use attachment file or not.<BR/>
+	 * return use attachment file or not.<BR>
 	 * 
 	 * @return use or not
 	 */
@@ -229,21 +229,21 @@ public interface IHttpMessage
 	String getAttachmentFilename();
 
 	/**
-	 * return body byte[]<BR/>
+	 * return body byte[]<BR>
 	 * 
 	 * @return byte[]
 	 */
 	byte[] getBodyByteArray();
 
 	/**
-	 * return Content-Disposition object.<BR/>
+	 * return Content-Disposition object.<BR>
 	 * 
 	 * @return ContextDisposition
 	 */
 	ContentDisposition getContentDisposition();
 
 	/**
-	 * set object for "Content-Disposition"<BR/>
+	 * set object for "Content-Disposition"<BR>
 	 * 
 	 * @param contentDisposition
 	 *            ContentDisposition object for "Content-Disposition"
@@ -251,14 +251,14 @@ public interface IHttpMessage
 	void setContentDisposition(ContentDisposition contentDisposition);
 
 	/**
-	 * return use or not for SSL trusting.<BR/>
+	 * return use or not for SSL trusting.<BR>
 	 *
 	 * @return use or not
 	 */
 	boolean isTrustSsl();
 
 	/**
-	 * set use or not for SSL trusting.<BR/>
+	 * set use or not for SSL trusting.<BR>
 	 *
 	 * @param isSslTrust
 	 *            use or not

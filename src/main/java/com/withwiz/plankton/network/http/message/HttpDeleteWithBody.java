@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import java.net.URI;
 
 /**
- * This implements HTTP DELETE method that has HTTP request body.<BR/>
+ * This implements HTTP DELETE method that has HTTP request body.<BR>
  * Created by uni4love on 2010. 8. 20..
  */
 public class HttpDeleteWithBody extends HttpEntityEnclosingRequestBase
@@ -29,7 +29,7 @@ public class HttpDeleteWithBody extends HttpEntityEnclosingRequestBase
 	}
 
 	/**
-	 * constructor<BR/>
+	 * constructor<BR>
 	 * 
 	 * @param uri
 	 *            URI string
@@ -40,7 +40,7 @@ public class HttpDeleteWithBody extends HttpEntityEnclosingRequestBase
 	}
 
 	/**
-	 * return method.<BR/>
+	 * return method.<BR>
 	 *
 	 * @return method
 	 */

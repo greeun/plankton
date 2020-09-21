@@ -1,7 +1,7 @@
 package com.withwiz.plankton.network.http.message;
 
 /**
- * HTTP response message.<BR/>
+ * HTTP response message.<BR>
  * Created by uni4love on 2010. 5. 8..
  */
 public class DefaultHttpResponseMessage extends DefaultHttpMessage implements IHttpResponseMessage
