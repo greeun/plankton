@@ -566,6 +566,17 @@ public class LoggerCreator {
     }
 
     /**
+     * set ROOT logger
+     * @param pattern pattern
+     * @param level log level
+     */
+    protected void setRootLogger(String pattern, String level) {
+        Logger logger = getRootLogger();
+        setLoggerFormat(logger, pattern);
+        setLoggerLevel(logger, level);
+    }
+
+    /**
      * test main
      *
      * @param args
