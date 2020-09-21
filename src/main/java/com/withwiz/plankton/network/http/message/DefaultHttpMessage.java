@@ -210,7 +210,7 @@ public class DefaultHttpMessage extends HttpMessage
 	}
 
 	/**
-	 * Map<Integer, String> test main
+	 * test main
 	 *
 	 * @param args
 	 */
