@@ -1,12 +1,13 @@
 ext {
     name_group = 'com.withwiz'
-    version_project = '0.6.1'
+    version_project = '0.6.2'
     version_slf4j = '1.7.30'
     version_logback = '1.2.3'
     version_httpclient = '4.3.6'
     version_netty = '4.1.50.Final'
     version_junit = '4.11'
     version_quartz = '2.3.2'
+    version_spring = '5.3.10'
     version_java = '1.8'
     project_build_sourceEncoding = 'UTF-8'
 }
@@ -44,6 +45,7 @@ dependencies {
     compile "org.apache.httpcomponents:httpmime:${version_httpclient}"
     compile "io.netty:netty-all:${version_netty}"
     compile group: 'org.quartz-scheduler', name: 'quartz', version: "${version_quartz}"
+    compile "org.springframework:spring-context:${version_spring}"
     testCompile group: 'junit', name: 'junit', version: "${version_junit}"
 }
 
