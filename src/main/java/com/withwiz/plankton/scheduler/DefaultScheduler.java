@@ -12,7 +12,7 @@ public class DefaultScheduler implements IScheduler, Runnable {
     /**
      * logger
      */
-    Logger log = (Logger)LoggerFactory.getLogger(DefaultScheduler.class.getName());
+    Logger log = (Logger) LoggerFactory.getLogger(DefaultScheduler.class.getName());
 
     /**
      * scheduled job
@@ -60,8 +60,8 @@ public class DefaultScheduler implements IScheduler, Runnable {
     public void run() {
         isRunning = true;
         log.info("Scheduler started by interval: {}", interval);
-        while(isRunning) {
-            if(scheduledJob == null) {
+        while (isRunning) {
+            if (scheduledJob == null) {
                 log.error("A Scheduler job is NULL!");
                 break;
             }
@@ -99,12 +99,12 @@ public class DefaultScheduler implements IScheduler, Runnable {
 
     @Override
     public void pause() {
-
+        //Not supported.
     }
 
     @Override
     public void resume() {
-
+        //Not supported.
     }
 
     @Override
@@ -114,6 +114,6 @@ public class DefaultScheduler implements IScheduler, Runnable {
 
     @Override
     public void setData(Map data) {
-
+        this.data = data;
     }
 }
