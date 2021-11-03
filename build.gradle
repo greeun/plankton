@@ -1,5 +1,30 @@
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+//    dependencies {
+//        classpath "com.novoda:bintray-release:0.9"
+//    }
+}
+
+plugins {
+    id 'java'
+    //for gradle v6
+    id 'maven'
+    //for gradle v7
+//    id 'maven-publish'
+    id 'signing'
+}
+
 ext {
     name_group = 'com.withwiz'
+    name_archives = 'plankton'
     version_project = '0.6.2'
     version_slf4j = '1.7.30'
     version_logback = '1.2.3'
@@ -12,30 +37,34 @@ ext {
     project_build_sourceEncoding = 'UTF-8'
 }
 
-apply plugin: 'java'
-apply plugin: 'com.novoda.bintray-release'
-apply plugin: 'maven'
-
 group ext.name_group
+//archivesBaseName ext.name_archives
 version ext.version_project
 
 sourceCompatibility = ext.version_java
-
+//targetCompatibility = ext.version_java
 compileJava.options.encoding = ext.project_build_sourceEncoding
-
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-
-    dependencies {
-        classpath "com.novoda:bintray-release:0.9"
-    }
-}
 
 repositories {
     jcenter()
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
 }
 
 dependencies {
@@ -49,14 +78,68 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: "${version_junit}"
 }
 
-publish {
-    userOrg = 'greeun'
-    groupId = 'com.withwiz'
-    artifactId = 'plankton'
-    publishVersion = property('version')
-    desc = 'Plankton is common utilities set.'
-    website = 'https://github.com/greeun/plankton'
-    issueTracker = '${website}/issues'
-    repository = "${website}.git"
-//  command:  gradle clean build bintrayUpload -PbintrayUser=[id] -PbintrayKey=[api key] -PdryRun=false
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'Plankton library'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'The Withwiz Plankton library/framework provides a modern way of implementing system integration, interfaces, utilities.\n' +
+                        ' \n' +
+                        'data conversion, \n' +
+                        'crypto, \n' +
+                        'data type, \n' +
+                        'logging, \n' +
+                        'io, \n' +
+                        'networking, \n' +
+                        'scheduler, \n' +
+                        'etc..'
+                url 'https://github.com/greeun/plankton'
+
+                scm {
+                    connection 'scm:git:git://github.com/greeun/plankton.git'
+                    developerConnection 'scm:git:git://github.com/greeun/plankton.git'
+                    url 'scm:git:git://github.com/greeun/plankton.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'greeun'
+                        name 'greeun'
+                        email 'dev@withwiz.com'
+                    }
+                }
+            }
+        }
+    }
 }
+
+//publish {
+//    userOrg = 'greeun'
+//    groupId = 'com.withwiz'
+//    artifactId = 'plankton'
+//    publishVersion = property('version')
+//    desc = 'Plankton is common utilities set.'
+//    website = 'https://github.com/greeun/plankton'
+//    issueTracker = '${website}/issues'
+//    repository = "${website}.git"
+////  command:  gradle clean build bintrayUpload -PbintrayUser=[id] -PbintrayKey=[api key] -PdryRun=false
+//}
